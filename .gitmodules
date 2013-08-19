@@ -1,0 +1,30 @@
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/conque"]
+	path = .vim/bundle/conque
+	url = https://github.com/nicoraffo/conque.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/rename2"]
+	path = .vim/bundle/rename2
+	url = https://github.com/ReekenX/vim-rename2.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/airline"]
+	path = .vim/bundle/airline
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/javascript-syntax"]
+	path = .vim/bundle/javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule ".vim/bundle/molokai"]
+	path = .vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule ".vim/bundle/pathogen"]
+	path = .vim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
