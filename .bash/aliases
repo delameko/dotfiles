@@ -1,0 +1,47 @@
+platform='unknown'
+unamestr=${uname}
+
+alias sn="sudo nano"
+alias ll='ls -la'
+alias la='ls -a'
+alias l='ls -CF'
+alias lr='ls -laR'
+alias h='history | grep'
+
+alias git=hub
+
+if [[ $unamestr == 'Linux' ]]; then
+  alias free="free -m"
+  alias update="sudo aptitude update"
+  alias install="sudo aptitude install"
+  alias search="sudo aptitude search"
+  alias upgrade="sudo aptitude safe-upgrade"
+  alias full-upgrade="sudo aptitude full-upgrade"
+  alias remove="sudo aptitude remove"
+fi
+
+#if [[ $unamestr == 'Darwin' ]]; then
+#  alias
+#fi
+
+alias ginstall="sudo gem install --no-ri --no-rdoc"
+alias glist="sudo gem list"
+alias gremove="sudo gem uninstall"
+alias guninstall="sudo gem uninstall"
+alias gupdate="sudo gem update --no-ri --no-rdoc"
+
+function rake {
+  if [ -e Gemfile ]; then
+    bundle exec rake $@
+  else
+    `which rake` $@
+  fi
+}
+
+function rspec {
+  if [ -e Gemfile ]; then
+    bundle exec rspec $@
+  else
+    `which rspec` $@
+  fi
+}

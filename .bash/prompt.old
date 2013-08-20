@@ -1,0 +1,71 @@
+_title="$(hostname -s):"
+_bold=$(tput bold)
+_normal=$(tput sgr0)
+
+__vcs_dir() {
+  local vcs base_dir sub_dir ref
+  sub_dir() {
+    local sub_dir
+    sub_dir=$(stat -f "${PWD}")
+    sub_dir=${sub_dir#$1}
+    echo ${sub_dir#/}
+  }
+
+  root_dir="cd /; pwd"
+
+  git_dir() {
+    base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
+    if [ -n "$base_dir" ]; then
+      base_dir=`cd $base_dir; pwd`
+    else
+      base_dir=$PWD
+    fi
+    sub_dir=$(git rev-parse --show-prefix)
+    sub_dir="/${sub_dir%/}"
+    ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
+    ref=${ref#refs/heads/}
+    vcs="git"
+  }
+
+  svn_dir() {
+    [ -d ".svn" ] || return 1
+    base_dir="."
+    while [ -d "$base_dir/../.svn" ]; do base_dir="$base_dir/.."; done
+    base_dir=`cd $base_dir; pwd`
+    sub_dir="/$(sub_dir "${base_dir}")"
+    ref=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
+    vcs="svn"
+  }
+
+  svn_dir || git_dir
+
+  local CYAN="\[\033[0;36m\]"
+  local YELLOW="\[\003[1;33m\]"
+
+  if [ -n "$vcs" ] && [ "$base_dir" != "$HOME" ]; then
+    __vcs_base_dir="${base_dir/$HOME/~}"
+    __vcs_ref="\033[0;35m\][$vcs:$ref]"
+    __vcs_sub_dir="${sub_dir}"
+
+    PS1='$(printf "%s%$(($COLUMNS-${#_title}-${#__vcs_base_dir}-${#__vcs_sub_dir}+6))s" "$CYAN${_title} $YELLOW${__vcs_base_dir}\[\e[00m\]${__vcs_sub_dir}" "${__vcs_ref}")\n\[\e[00m\]\A >:\[\e[37;0m\] '
+    #PS1='\n\t \[\e[36;1m\]${_title} \[\e[34;1m\]${__vcs_base_dir}\[\e[00m\]${__vcs_sub_dir} \[\e[0;35m\]${__vcs_ref}\n\[\e[00m\]>:\[\e[37;0m\] '
+  else
+    base_dir=`pwd`
+    __escaped_home=${HOME//\//\\\/}
+    if [ "$base_dir" = "/" ]; then
+      prev_dir=""
+    elif [ "$base_dir" = "$HOME" ]; then
+      prev_dir="/"
+    else
+      prev_dir=`cd ..; pwd`
+      if [ "$prev_dir" != "/" ]; then
+        prev_dir="${prev_dir}/"
+      fi
+    fi
+    __vcs_base_dir=${prev_dir//$__escaped_home/\~}
+    PS1='\n\[\e[0;36m\]${_title} \[\e[1;33m\]${__vcs_base_dir}\n\[\e[00m\]\A >:\[\e[37;0m\] '
+    #PS1='\n\t \[\e[36;1m\]${_title} \[\e[34;1m\]${__vcs_base_dir}\[\e[00m\]\W\n>:\[\e[37;0m\] '
+  fi
+}
+
+PROMPT_COMMAND=__vcs_dir
