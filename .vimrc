@@ -53,12 +53,14 @@ set undolevels=1000             " Use many muchos levels of undo
 set ws                          " Search commands wrap the end of buffer
 
 " NERDTree
-"let NERDTreeShowBookmarks=1
-"let NERDTreeShowHidden=1
-"let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+" Shortcut
+nmap <leader>nt :NERDTree
 
 " NERDCommenter
-"let NERDSpaceDelims=1 " Always leave a space before the comment
+let NERDSpaceDelims=1 " Always leave a space before the comment
 
 " Airline
 let g:airline_detect_modified=1
