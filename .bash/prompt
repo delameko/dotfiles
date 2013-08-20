@@ -1,13 +1,47 @@
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo " *"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/git-prompt.sh
+
+function _git_prompt() {
+  local git_status="`git status -unormal 2>&1`"
+  if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+    if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+      local ansi=32
+    elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+      local ansi=34
+    else
+      local ansi=35
+    fi
+    echo -n '\[\e[0;'"$ansi"'m\]'"$(__git_ps1)"'\[\e[0m\]'
+  fi
 }
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-}
+
 function set_prompt {
   local CYAN='\[\e[1;36m\]'
 
-  export PS1='\n\[\e[1;34m\]\h: \[\e[1;36m\]\w\[\e[0;35m\] $(parse_git_branch)\n\[\e[1;37m\]\t >: '
+  export PS1='\n\[\e[1;34m\]\h: \[\e[1;36m\]\w $(_git_prompt)\n\[\e[1;37m\]\t >: '
 }
 
 set_prompt
+
+
+
+
+
+# function _git_prompt() {
+#   local git_status="`git status -unormal 2>&1`"
+#   if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+#     if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+#       local ansi=32
+#     elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+#       local ansi=31
+#     else
+#       local ansi=33
+#     fi
+#     echo -n '\[\e[0;33;'"$ansi"'m\]'"$(__git_ps1)"'\[\e[0m\]'
+#   fi
+# }
+#
+# function _prompt_command() {
+#   PS1="`if [ \$? = 0 ]; then echo -n '\[\e[0;33;32m\]^-^';else echo -n '\[\e[0;33;31m\]-_-';fi`\[\033[00m\] \u@\h \[\033[36m\]\w `_git_prompt`\[\033[37m\]$\[\033[00m\]"
+# }
+PROMPT_COMMAND=_prompt_command

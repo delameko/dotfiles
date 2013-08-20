@@ -12,11 +12,20 @@ colorscheme molokai
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let &colorcolumn=join(range(81,999),",")
 
+" Change the cursor in terminal so block in normal, underscore in insert
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 let mapleader=","               " Change leader to comma
 
-nnoremap ; :                    " Use semi-colon for commands
-nmap <silent> ,/ :nohlsearch<CR>" Clear the search highlights with ,/
-cmap w!! w !sudo tee % >/dev/null " Use w!! to sudo save an already opened file
+" Use semi-colon for commands
+nnoremap ; :
+
+" Clear the search highlights with <L>/
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
+" Use w!! to sudo save an already opened file
+cmap w!! w !sudo tee % >/dev/null
 
 set acd                         " Auto-change to directory of file in buffer
 set autoindent
@@ -67,15 +76,15 @@ let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
-if has("gui_running")
+" if has("gui_running")
   let g:airline_left_sep = ''
   let g:airline_right_sep = ''
-else
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '◀'
-  let g:airline_branch_prefix = '⎇ '
-  let g:airline_readonly_symbol = 'Þ'
-endif
+" else
+"   let g:airline_left_sep = '▶'
+"   let g:airline_right_sep = '◀'
+"  let g:airline_branch_prefix = '⎇ '
+"  let g:airline_readonly_symbol = 'Þ'
+" endif
 let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 "let g:Powerline_symbols='fancy'
@@ -111,15 +120,6 @@ nmap <leader>l mQviwu`Q
 " upper/lower first char of word
 nmap <leader>U mQgewvU`Q
 nmap <leader>L mQgewvu`Q
-
-" Make window movement easier
-nnoremap <D-Left> <C-w>h
-nnoremap <D-Up> <C-w>k
-nnoremap <D-Down> <C-w>j
-nnoremap <D-Right> <C-w>l
-
-" Toggle comments responds to cmd-/
-map <D-/> <Leader>c<space>
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
