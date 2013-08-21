@@ -1,28 +1,27 @@
 platform=${uname}
 
-if [ -f ~/.bash/exports ]; then
-    . ~/.bash/exports
-fi
-
-# Don't check mail
-unset MAILCHECK
-
 # Alias definitions.
 if [ -f ~/.bash/aliases ]; then
-    . ~/.bash/aliases
+  source ~/.bash/aliases
+fi
+
+# Export definitions
+if [ -f ~/.bash/exports ]; then
+  source ~/.bash/exports
 fi
 
 # Custom prompt
 if [ -f ~/.bash/prompt ]; then
-    . ~/.bash/prompt
+  source ~/.bash/prompt
+fi
+
+# Bashmarks (https://github.com/twerth/bashmarks)
+if [ -f ~/.bash/script/bashmarks.sh ]; then
+  source ~/.bash/script/bashmarks.sh
 fi
 
 # enable programmable completion features
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+  source /etc/bash_completion
 fi
-
-[[ -s "/Users/mattslater/.rvm/scripts/rvm" ]] && source "/Users/mattslater/.rvm/scripts/rvm"
-
-source ~/.nvm/nvm.sh
 

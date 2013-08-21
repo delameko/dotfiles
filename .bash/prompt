@@ -1,5 +1,5 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $DIR/git-prompt.sh
+source $DIR/scripts/git-prompt.sh
 
 function _git_prompt() {
   local git_status="`git status -unormal 2>&1`"
