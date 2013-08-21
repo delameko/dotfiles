@@ -7,6 +7,7 @@ syntax on
 filetype plugin indent on
 
 colorscheme molokai
+set background=dark
 
 " Change the colour paste column 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -87,6 +88,10 @@ let g:airline_theme='dark'
 
 " Indent Guides plugin
 let g:indent_guides_auto_colors=1
+let g:indent_guides_color_change_percent=5
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_start_level=2
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
@@ -100,7 +105,7 @@ autocmd FocusLost * silent! wa
 " Return to command mode when losing focusCK RIGHT-POINTING POINTER
 autocmd FocusLost,TabLeave  * call LeaveInsertMode()
 function! LeaveInsertMode()
-    if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
+  if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
 endfunction
 
 " Highlight cursor line, but only in the active pane.

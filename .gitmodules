@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/gsession"]
 	path = .vim/bundle/gsession
 	url = https://github.com/c9s/gsession.vim.git
+[submodule ".vim/bundle/easymotion"]
+	path = .vim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
