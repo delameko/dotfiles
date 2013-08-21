@@ -7,7 +7,6 @@ syntax on
 filetype plugin indent on
 
 colorscheme molokai
-set background=dark
 
 " Change the colour paste column 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -87,7 +86,13 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 
 " Indent Guides plugin
-let g:indent_guides_auto_colors=1
+if has("gui_running")
+  let g:indent_guides_auto_colors=1
+else
+  let g:indent_guides_auto_colors=0
+  hi IndentGuidesOdd  ctermbg=233
+  hi IndentGuidesEven ctermbg=234
+endif
 let g:indent_guides_color_change_percent=5
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
