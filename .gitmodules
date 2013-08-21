@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/conque"]
-	path = .vim/bundle/conque
-	url = https://github.com/nicoraffo/conque.git
 [submodule ".vim/bundle/rename2"]
 	path = .vim/bundle/rename2
 	url = https://github.com/ReekenX/vim-rename2.git
@@ -46,3 +43,6 @@
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/tmux-navigator"]
+	path = .vim/bundle/tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
