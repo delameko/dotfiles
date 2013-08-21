@@ -63,13 +63,10 @@ set ws                          " Search commands wrap the end of buffer
 
 " NERDTree
 let NERDTreeShowBookmarks=1
+let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-" Shortcut
-nmap <leader>nt :NERDTree
-
-" NERDCommenter
-let NERDSpaceDelims=1 " Always leave a space before the comment
+nmap <leader>nt :NERDTree<CR>
 
 " Airline
 let g:airline_detect_modified=1
@@ -87,6 +84,9 @@ let g:airline_enable_syntastic=1
 " endif
 let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
+
+" Indent Guides plugin
+let g:indent_guides_auto_colors=1
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
