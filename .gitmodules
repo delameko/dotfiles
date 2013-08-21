@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/indent-guides"]
 	path = .vim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/gsession"]
+	path = .vim/bundle/gsession
+	url = https://github.com/c9s/gsession.vim.git
