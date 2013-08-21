@@ -31,7 +31,6 @@ set acd                         " Auto-change to directory of file in buffer
 set autoindent
 set autoread                    " Auto read a file after external changes
 set autowriteall                " Auto write when leaving buffer
-set cursorline                  " Highlight the current line
 set encoding=utf-8
 set expandtab                   " Expand tab characters to spaces
 set formatoptions=ql            " q - allow formatting of comments with :gq
@@ -47,6 +46,7 @@ set noshowmode                  " Hide the default mode text
 set noswapfile
 set nowrap                      " Don't wrap lines
 set number numberwidth=5        " Show line number.
+set scrolloff=10                " Show number of lines around the cursor
 set shiftwidth=2                " Number of spaces inserted for indentation
 set showcmd                     " Show command as you type
 set showmatch                   " Show matching brackets
@@ -87,7 +87,6 @@ let g:airline_enable_syntastic=1
 " endif
 let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
-"let g:Powerline_symbols='fancy'
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
@@ -104,14 +103,21 @@ function! LeaveInsertMode()
     if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
 endfunction
 
+" Highlight cursor line, but only in the active pane.
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
 " enables :Paste to just do what you want
 command! Paste execute 'set paste | insert | set nopaste'
 
 " shift-tab for unindent
 map <Tab> >>
 map <S-Tab> <<
-imap <Tab> <Esc>>>i
-imap <S-Tab> <Esc><<i
+"imap <Tab> <Esc>>>i
+"imap <S-Tab> <Esc><<i
 
 " upper/lower word
 nmap <leader>u mQviwU`Q
