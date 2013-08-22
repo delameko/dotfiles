@@ -1,6 +1,6 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-FILES=( ".bash" ".bashrc" ".gvimrc" ".tmux.conf" ".vimrc" ".vim" ".zshrc")
+FILES=( ".bash" ".bashrc" ".gemrc" ".gvimrc" ".tmux.conf" ".vimrc" ".vim" ".zshrc")
 
 for FILE in ${FILES[@]}; do
   SOURCE="$DIR/$FILE"
