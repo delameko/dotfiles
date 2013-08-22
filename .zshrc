@@ -44,5 +44,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$PATH:/Users/mattslater/.rvm/gems/ruby-2.0.0-p247@gemset/bin:/Users/mattslater/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/mattslater/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/mattslater/.rvm/bin:/usr/local/bin:/usr/local/sbin:/Applications/Postgres.app/Contents/MacOS:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/mattslater/.ec2/bin
+setopt inc_append_history
+setopt share_history
+
+# Path concat
+PATH_BREW=/usr/local/bin:/usr/local/sbin
+PATH_RUBY=$HOME/.rvm/gems/ruby-2.0.0-p247@gemset/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@global/bin:$HOME/.rvm/rubies/ruby-2.0.0-p247/bin:$HOME/.rvm/bin
+PATH_GRES=/Applications/Postgres.app/Contents/MacOS
+PATH_NPM=/usr/local/share/npm/bin
+PATH_EC2=/Users/mattslater/.ec2/bin
+export PATH=$PATH_BREW:$PATH_RUBY:$PATH_GRES:$PATH_NPM:/usr/bin:/bin:/usr/sbin:/sbin:$PATH_EC2
