@@ -14,7 +14,7 @@ for FILE in ${FILES[@]}; do
       echo "${FILE} exists, moving to ${FILE}.old"
       mv -f $TARGET $TARGET.old
     else
-      exit 1
+      # Doesn't exist
     fi
   fi
   echo
