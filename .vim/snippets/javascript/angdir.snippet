@@ -1,0 +1,11 @@
+App.directives.directive('${1:myDirective}', [
+	function () {
+		return {
+			templateUrl: 'views/directives/$1.html',
+			restrict: 'E',
+			link: function $1Link(scope, element, attrs) {
+				${2}
+			}
+		};
+	}
+]);
