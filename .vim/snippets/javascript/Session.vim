@@ -4,9 +4,9 @@ let s:cpo_save=&cpo
 set cpo&vim
 inoremap <silent> <S-Tab> =BackwardsSnippet()
 nnoremap <silent>  :TmuxNavigateLeft
-snoremap <silent> 	 i<Right>=TriggerSnippet()
-nmap 	 >>
 xmap 	 >>
+nmap 	 >>
+snoremap <silent> 	 i<Right>=TriggerSnippet()
 omap 	 >>
 nnoremap <silent> <NL> :TmuxNavigateDown
 nnoremap <silent>  :TmuxNavigateUp
@@ -103,6 +103,8 @@ nmap ySs <Plug>YSsurround
 nmap yss <Plug>Yssurround
 nmap yS <Plug>YSurround
 nmap ys <Plug>Ysurround
+xmap <S-Tab> <<
+nmap <S-Tab> <<
 snoremap <Left> bi
 snoremap <Right> a
 snoremap <BS> b<BS>
@@ -122,8 +124,6 @@ nnoremap <silent> <Plug>SIG_NextSpotByAlpha :call signature#GotoMark("alpha", "n
 nnoremap <silent> <Plug>SIG_PurgeMarkers :call signature#PurgeMarkers()
 nnoremap <silent> <Plug>SIG_PurgeMarks :call signature#PurgeMarks()
 nnoremap <silent> <Plug>SIG_PlaceNextMark :call signature#Input(",")
-nmap <S-Tab> <<
-xmap <S-Tab> <<
 omap <S-Tab> <<
 xmap <BS> "-d
 imap S <Plug>ISurround
@@ -168,16 +168,17 @@ set undofile
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/.dotfiles
+cd ~/.dotfiles/.vim/snippets/javascript
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ~/.dotfiles/.vimrc
+badd +1 ~/.dotfiles/.vimrc
 badd +3 ~/.dotfiles/.vim/bundle/snipmate/doc/test.c
-badd +0 ~/.dotfiles/.vim/snippets/javascript/angdir.snippet
-badd +0 ~/.dotfiles/test.js
-args .vimrc
+badd +1 ~/.dotfiles/.vim/snippets/javascript/angdir.snippet
+badd +1 ~/.dotfiles/test.js
+badd +0 ~/.dotfiles/.vim/snippets/javascript/con.snippet
+args ~/.dotfiles/.vimrc
 edit ~/.dotfiles/.vimrc
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -391,7 +392,7 @@ setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
-setlocal cursorline
+setlocal nocursorline
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -456,7 +457,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%{airline#check_mode()}%#airline_a#%(\ %{get(w:,\ \"airline_current_mode\",\ \"\")}\ %)%{g:airline_detect_paste\ &&\ &paste\ ?\ g:airline_paste_symbol.\"\ \"\ :\ \"\"}%#airline_a_to_airline_b#%#airline_b#%(\ %{airline#extensions#branch#get_head()}\ %)%#airline_b_to_airline_c#%#airline_c#%<%(\ %f%m\ %)\ %#airline_file#%{&ro\ ?\ g:airline_readonly_symbol\ :\ \"\"}%#airline_c#%=%#airline_c_to_airline_c#%#airline_c#%(\ %{strlen(&filetype)>0?&filetype:''}\ %)%#airline_c_to_airline_b#%#airline_b#%(\ %{strlen(&fenc)>0?&fenc:''}%{strlen(&ff)>0?'['.&ff.']':''}\ %)%#airline_b_to_airline_a#%#airline_a#%(\ %3p%%\ \ %3l:%3c\ %)%(%#airline_a_to_warningmsg#%#warningmsg#\ %#warningmsg#%{SyntasticStatuslineFlag()}%{airline#extensions#whitespace#check()}%)
+setlocal statusline=%{airline#check_mode()}%#airline_c_inactive#%f%m%#airline_c_inactive#%=%#airline_c_inactive_to_airline_c_inactive#%#airline_c_inactive#%(\ %{strlen(&filetype)>0?&filetype:''}\ %)%#airline_c_inactive_to_airline_b_inactive#%#airline_b_inactive#%(\ %{strlen(&fenc)>0?&fenc:''}%{strlen(&ff)>0?'['.&ff.']':''}\ %)%#airline_b_inactive_to_airline_a_inactive#%#airline_a_inactive#%(\ %3p%%\ \ %3l:%3c\ %)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -474,12 +475,12 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 12) / 25)
+let s:l = 8 - ((7 * winheight(0) + 12) / 25)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 06|
+8
+normal! 0
 wincmd w
 argglobal
 edit ~/.dotfiles/.vim/bundle/snipmate/doc/snipMate.txt
@@ -618,7 +619,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-edit ~/.dotfiles/.vim/snippets/javascript/angdir.snippet
+edit ~/.dotfiles/.vim/snippets/javascript/con.snippet
 let s:cpo_save=&cpo
 set cpo&vim
 nmap <buffer> '[ <Plug>SIG_PrevLineByAlpha
@@ -661,7 +662,7 @@ setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
-setlocal nocursorline
+setlocal cursorline
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -726,7 +727,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%{airline#check_mode()}%#airline_c_inactive#%f%m%#airline_c_inactive#%=%#airline_c_inactive_to_airline_c_inactive#%#airline_c_inactive#%(\ %{strlen(&filetype)>0?&filetype:''}\ %)%#airline_c_inactive_to_airline_b_inactive#%#airline_b_inactive#%(\ %{strlen(&fenc)>0?&fenc:''}%{strlen(&ff)>0?'['.&ff.']':''}\ %)%#airline_b_inactive_to_airline_a_inactive#%#airline_a_inactive#%(\ %3p%%\ \ %3l:%3c\ %)
+setlocal statusline=%{airline#check_mode()}%#airline_a#%(\ %{get(w:,\ \"airline_current_mode\",\ \"\")}\ %)%{g:airline_detect_paste\ &&\ &paste\ ?\ g:airline_paste_symbol.\"\ \"\ :\ \"\"}%#airline_a_to_airline_b#%#airline_b#%(\ %{airline#extensions#branch#get_head()}\ %)%#airline_b_to_airline_c#%#airline_c#%<%(\ %f%m\ %)\ %#airline_file#%{&ro\ ?\ g:airline_readonly_symbol\ :\ \"\"}%#airline_c#%=%#airline_c_to_airline_c#%#airline_c#%(\ %{strlen(&filetype)>0?&filetype:''}\ %)%#airline_c_to_airline_b#%#airline_b#%(\ %{strlen(&fenc)>0?&fenc:''}%{strlen(&ff)>0?'['.&ff.']':''}\ %)%#airline_b_to_airline_a#%#airline_a#%(\ %3p%%\ \ %3l:%3c\ %)%(%#airline_a_to_warningmsg#%#warningmsg#\ %#warningmsg#%{SyntasticStatuslineFlag()}%{airline#extensions#whitespace#check()}%)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -743,30 +744,14 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-2
-normal! zo
-2
-normal! zo
-2
-normal! zo
-2
-normal! zo
-3
-normal! zo
-4
-normal! zo
-5
-normal! zo
-8
-normal! zo
-let s:l = 12 - ((11 * winheight(0) + 12) / 24)
+let s:l = 1 - ((0 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 09|
+1
+normal! 024|
 wincmd w
-2wincmd w
+4wincmd w
 exe '1resize ' . ((&lines * 25 + 26) / 52)
 exe 'vert 1resize ' . ((&columns * 120 + 121) / 242)
 exe '2resize ' . ((&lines * 25 + 26) / 52)
