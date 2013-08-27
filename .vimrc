@@ -98,6 +98,15 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_start_level=2
 
+" Syntastic
+let g:syntastic_auto_loc_list=1   " Automatically show error log on save
+let g:syntastic_loc_list_height=3 " Only show three errors at a time.
+let g:synyastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$']
+hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+hi SyntasticErrorSign guifg=white guibg=red
+hi SyntasticWarningSign guifg=white guibg=purple
+
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
