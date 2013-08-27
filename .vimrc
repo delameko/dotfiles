@@ -114,13 +114,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Write all files when focus lost
-autocmd FocusLost * silent! wa
-
-" Return to command mode when losing focusCK RIGHT-POINTING POINTER
-autocmd FocusLost,TabLeave  * call LeaveInsertMode()
-function! LeaveInsertMode()
-  if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
-endfunction
+autocmd FocusLost * silent! :wa
 
 " Highlight cursor line, but only in the active pane.
 augroup CursorLine
