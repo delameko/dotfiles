@@ -1,11 +1,13 @@
+filetype off
+
 runtime bundle/pathogen/autoload/pathogen.vim
 
 call pathogen#infect()
 call pathogen#helptags()
 
-syntax on
 filetype plugin indent on
 
+syntax on
 colorscheme molokai
 
 " Change the colour paste column 80
@@ -16,7 +18,8 @@ let &colorcolumn=join(range(81,999),",")
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-let mapleader=","               " Change leader to comma
+" Change leader to comma
+let mapleader=","
 
 " Use semi-colon for commands
 nnoremap ; :
@@ -28,10 +31,11 @@ nmap <silent> <Leader>/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 set acd                         " Auto-change to directory of file in buffer
-set autoindent
+set autoindent                  " Auto-indent
 set autoread                    " Auto read a file after external changes
 set autowriteall                " Auto write when leaving buffer
-set encoding=utf-8
+set backspace=indent,eol,start  " Allow backspace to work more like expected
+set encoding=utf-8              " UTF-8
 set expandtab                   " Expand tab characters to spaces
 set formatoptions=ql            " q - allow formatting of comments with :gq
                                 " l - don't format already long lines
@@ -40,25 +44,30 @@ set history=1000                " remember more commands and search history
 set ignorecase                  " Case insensitive
 set incsearch                   " Show match for partly typed searches
 set laststatus=2                " Always display the statusline in all windows
+set lazyredraw                  " Buffer screen updates
 set list listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+set modelines=0                 " Disable modelines, don't use them anyway
+set mouse=a                     " Mouse support
 set nobackup                    " No backup, use git
 set noshowmode                  " Hide the default mode text
-set noswapfile
 set nowrap                      " Don't wrap lines
 set number numberwidth=5        " Show line number.
 set scrolloff=10                " Show number of lines around the cursor
 set shiftwidth=2                " Number of spaces inserted for indentation
 set showcmd                     " Show command as you type
 set showmatch                   " Show matching brackets
-set smartindent
+set smartindent                 " Is it smart?  Really?
 set softtabstop=2               " Backspace treats spaces like tabs
 set splitbelow                  " Create horizontal splits below the current one
 set splitright                  " Create vertical splits to the right of current
-set t_Co=256
-set tabstop=2
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000             " Use many muchos levels of undo
+set t_Co=256                    " Set 256 colours
+set tabstop=2                   " Tab stop
+set ttyfast                     " Speed up screen updates in large files
+set undodir=~/.vim/undodir      " Where to save the undo file
+set undofile                    " Save undos to a file, so they persist
+set undolevels=1000             " Use many levels of undo
+set wildmenu                    " Enable command completion in the command line
+set wildmode=list:longest,full  " Auto complete to the longest match
 set ws                          " Search commands wrap the end of buffer
 
 " NERDTree
@@ -129,8 +138,6 @@ command! Paste execute 'set paste | insert | set nopaste'
 " shift-tab for unindent
 map <Tab> >>
 map <S-Tab> <<
-"imap <Tab> <Esc>>>i
-"imap <S-Tab> <Esc><<i
 
 " upper/lower word
 nmap <leader>u mQviwU`Q
