@@ -70,14 +70,14 @@ set wildmenu                    " Enable command completion in the command line
 set wildmode=list:longest,full  " Auto complete to the longest match
 set ws                          " Search commands wrap the end of buffer
 
-" NERDTree
+" NERDTree plugin
 let NERDTreeShowBookmarks=1
 let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 nmap <leader>nt :NERDTree<CR>
 
-" Airline
+" Airline plugin
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_enable_branch=1
@@ -94,6 +94,10 @@ let g:airline_enable_syntastic=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 
+" CloseTag plugin
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
+
 " Indent Guides plugin
 if has("gui_running")
   let g:indent_guides_auto_colors=1
@@ -107,7 +111,7 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_start_level=2
 
-" Syntastic
+" Syntastic plugin
 let g:syntastic_auto_loc_list=1   " Automatically show error log on save
 let g:syntastic_loc_list_height=3 " Only show three errors at a time.
 let g:synyastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$']
