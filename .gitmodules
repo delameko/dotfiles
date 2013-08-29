@@ -58,3 +58,6 @@
 	path = .vim/bundle/matchit
 	url = https://github.com/tsaleh/vim-matchit.git
   ignore = untracked
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
