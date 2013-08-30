@@ -74,7 +74,7 @@ set ws                          " Search commands wrap the end of buffer
 let NERDTreeShowBookmarks=1
 let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
 nmap <leader>nt :NERDTree<CR>
 
 " Airline plugin
