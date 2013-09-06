@@ -73,6 +73,9 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/vim-scripts/SuperTab.git
+[submodule ".vim/bundle/rails-vim"]
+	path = .vim/bundle/rails-vim
+	url = https://github.com/tpope/vim-rails.git
 [submodule ".vim/bundle/bundler-vim"]
 	path = .vim/bundle/bundler-vim
 	url = https://github.com/tpope/vim-bundler.git
