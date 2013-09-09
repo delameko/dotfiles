@@ -96,8 +96,8 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 
 " CloseTag plugin
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
+autocmd FileType html let b:closetag_html_style=1
+"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
 
 " Indent Guides plugin
 if has("gui_running")
