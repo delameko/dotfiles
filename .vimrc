@@ -121,7 +121,7 @@ hi SyntasticErrorSign guifg=white guibg=red
 hi SyntasticWarningSign guifg=white guibg=purple
 
 " Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
@@ -139,9 +139,9 @@ augroup END
 " enables :Paste to just do what you want
 command! Paste execute 'set paste | insert | set nopaste'
 
-" shift-tab for unindent
-map <Tab> >>
-map <S-Tab> <<
+" shift-tab for indent, shift-alt-tab for unindent
+map <S-Tab> >>
+map <S-A-Tab> <<
 
 " upper/lower word
 nmap <leader>u mQviwU`Q
