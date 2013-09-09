@@ -37,6 +37,7 @@ set autowriteall                " Auto write when leaving buffer
 set backspace=indent,eol,start  " Allow backspace to work more like expected
 set encoding=utf-8              " UTF-8
 set expandtab                   " Expand tab characters to spaces
+set exrc secure                 " enable per-directory secure .vimrc files
 set formatoptions=ql            " q - allow formatting of comments with :gq
                                 " l - don't format already long lines
 set hidden                      " Allow buffers to be hidden without saving
@@ -110,6 +111,9 @@ let g:indent_guides_color_change_percent=5
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_start_level=2
+
+" Javascript syntax
+let g:used_javascript_libs = 'underscore,angularjs'
 
 " Syntastic plugin
 let g:syntastic_auto_loc_list=1   " Automatically show error log on save
