@@ -96,8 +96,8 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 
 " CloseTag plugin
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
+autocmd FileType html,eruby let b:closetag_html_style=1
+"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
 
 " Indent Guides plugin
 if has("gui_running")
@@ -127,8 +127,11 @@ hi SyntasticWarningSign guifg=white guibg=purple
 " TagBar plugin
 nmap <Leader>tb :TagbarToggle<CR>
 
+" Unite plugin
+nnoremap <C-p> :Unite file_rec/async<cr>
+
 " Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
@@ -146,9 +149,9 @@ augroup END
 " enables :Paste to just do what you want
 command! Paste execute 'set paste | insert | set nopaste'
 
-" shift-tab for unindent
-map <Tab> >>
-map <S-Tab> <<
+" shift-tab for indent, shift-alt-tab for unindent
+map <S-Tab> >> <ESC>
+map <S-A-Tab> << <ESC>
 
 " upper/lower word
 nmap <leader>u mQviwU`Q
