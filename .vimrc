@@ -124,6 +124,9 @@ hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
 hi SyntasticErrorSign guifg=white guibg=red
 hi SyntasticWarningSign guifg=white guibg=purple
 
+" TagBar plugin
+nmap <Leader>tb :TagbarToggle<CR>
+
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
