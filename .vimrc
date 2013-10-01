@@ -73,7 +73,9 @@ set ws                          " Search commands wrap the end of buffer
 
 " NERDTree plugin
 let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
 let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
+let NERDTreeQuitOnOpen=0
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
 nmap <leader>nt :NERDTree<CR>
