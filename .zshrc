@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -54,11 +54,11 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
 # Path concat
-PATH_RUBY=$HOME/.rvm/gems/ruby-2.0.0-p247@gemset/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@global/bin:$HOME/.rvm/rubies/ruby-2.0.0-p247/bin:$HOME/.rvm/bin
+PATH_RUBY=$HOME/.rvm/rubies/ruby-2.0.0-p247/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@gemset/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@global/bin
 PATH_BREW=/usr/local/bin:/usr/local/sbin
 PATH_GRES=/Applications/Postgres.app/Contents/MacOS
 PATH_NPM=/usr/local/share/npm/bin
-PATH_EC2=/Users/mattslater/.ec2/bin
+PATH_EC2=$HOME/.ec2/bin
 PATH_RVM=$HOME/.rvm/bin
-export PATH=$PATH_RUBY:$PATH_BREW:$PATH_GRES:$PATH_NPM:/usr/bin:/bin:/usr/sbin:/sbin:$PATH_EC2:$PATH_RVM
+PATH=$PATH_RUBY:$PATH_BREW:$PATH_GRES:$PATH_NPM:/usr/bin:/bin:/usr/sbin:/sbin:$PATH_EC2:$PATH_RVM
 
