@@ -129,9 +129,6 @@ hi SyntasticWarningSign guifg=white guibg=purple
 " TagBar plugin
 nmap <Leader>tb :TagbarToggle<CR>
 
-" Unite plugin
-nnoremap <C-p> :Unite file_rec/async<cr>
-
 " Automatically cd into the directory that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
