@@ -53,12 +53,17 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
+# Include stuff that should only be on this
+if [[ -r ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi
+
 # Path concat
-PATH_RUBY=$HOME/.rvm/rubies/ruby-2.0.0-p247/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@gemset/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@global/bin
-PATH_BREW=/usr/local/bin:/usr/local/sbin
-PATH_GRES=/Applications/Postgres.app/Contents/MacOS
-PATH_NPM=/usr/local/share/npm/bin
-PATH_EC2=$HOME/.ec2/bin
-PATH_RVM=$HOME/.rvm/bin
-PATH=$PATH_RUBY:$PATH_BREW:$PATH_GRES:$PATH_NPM:/usr/bin:/bin:/usr/sbin:/sbin:$PATH_EC2:$PATH_RVM
+#PATH_RUBY=$HOME/.rvm/rubies/ruby-2.1.0/bin:$HOME/.rvm/gems/ruby-2.1.0@gemset/bin:$HOME/.rvm/gems/ruby-2.1.0@global/bin
+#PATH_BREW=/usr/local/bin:/usr/local/sbin
+#PATH_GRES=/Applications/Postgres.app/Contents/MacOS
+#PATH_NPM=/usr/local/share/npm/bin
+#PATH_EC2=$HOME/.ec2/bin
+#PATH_RVM=$HOME/.rvm/bin
+#PATH=$PATH_RUBY:$PATH_BREW:$PATH_GRES:$PATH_NPM:/usr/bin:/bin:/usr/sbin:/sbin:$PATH_EC2:$PATH_RVM
 
