@@ -67,3 +67,21 @@ fi
 #PATH_RVM=$HOME/.rvm/bin
 #PATH=$PATH_RUBY:$PATH_BREW:$PATH_GRES:$PATH_NPM:/usr/bin:/bin:/usr/sbin:/sbin:$PATH_EC2:$PATH_RVM
 
+###########
+# ALIASES #
+###########
+if [[ "$(uname)" -eq "Darwin" ]]; then
+    alias install='brew install'
+    alias list='brew list'
+    alias remove='brew uninstall'
+    alias search='brew search'
+    alias update='brew update'
+    alias upgrade='brew upgrade'
+elif [[ "$(uname)" -eq "Linux" ]]; then
+    alias install='sudo aptitude install'
+    alias list='dpkg --list'
+    alias remove='sudo aptitude remove'
+    alias search='sudo aptitude search'
+    alias update='sudo aptitude update'
+    alias upgrade='sudo aptitude upgrade'
+fi
