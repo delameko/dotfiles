@@ -1,9 +1,36 @@
+set nocompatible
 filetype off
 
-runtime bundle/pathogen/autoload/pathogen.vim
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-call pathogen#infect()
-call pathogen#helptags()
+Bundle 'gmarik/vundle'
+Bundle 'mileszs/ack.vim'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-bundler'
+Bundle 'docunext/closetag.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
+Bundle 'c9s/gsession.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'tomasr/molokai'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-rails'
+Bundle 'ReekenX/vim-rename2'
+Bundle 'kshenoy/vim-signature'
+Bundle 'msanders/snipmate.vim'
+Bundle 'SuperTab'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar'
+Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on
 
