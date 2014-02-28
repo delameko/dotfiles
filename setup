@@ -1,8 +1,45 @@
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FILEPATH=$(readlink -f "$0")
+DIR=$(dirname "$FILEPATH")
 
-#FILES=( ".bash" ".bashrc" ".gemrc" ".gvimrc" ".tmux.conf" ".vimrc" ".vim" ".zshrc")
-FILES=()
-for FILE in ${FILES[@]}; do
+while true; do
+    read -p "do you wish to install Vundle for Vim? " yn
+    case $yn in
+        [Yy]* ) git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle;
+                vim +BundleInstall +qall;
+                break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+if ! command -v zsh > /dev/null; then
+    while true; do
+        read -p "zsh not installed. Do you want to install zsh? " yn
+        case $yn in
+            [Yy]* ) sudo apt-get install zsh;
+                    chsh -s /bin/zsh;
+                    break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
+
+if [ ! -d "$HOME/.oh-my-zsh" ] ; then
+    while true; do
+        read -p "Do you wish to install Oh-My-Zsh? " yn
+        case $yn in
+            [Yy]* ) git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
+                    break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
+
+FILES=( ".bash" ".bashrc" ".gemrc" ".gvimrc" ".tmux.conf" ".vimrc" ".vim" ".zshrc")
+
+for FILE in $FILES; do
   SOURCE="$DIR/$FILE"
   TARGET="$HOME/$FILE"
 
@@ -21,13 +58,3 @@ for FILE in ${FILES[@]}; do
   echo
 done
 
-while true; do
-    read -p "do you wish to install Vundle for Vim? " yn
-    case $yn in
-        [Yy]* ) git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle;
-                vim +BundleInstall +qall;
-                break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
