@@ -37,7 +37,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ] ; then
     done
 fi
 
-FILES=( ".bash" ".bashrc" ".gemrc" ".gvimrc" ".tmux.conf" ".vimrc" ".vim" ".zshrc")
+FILES=".bash .bashrc .gemrc .gvimrc .tmux.conf .vimrc .vim .zshrc"
 
 for FILE in $FILES; do
   SOURCE="$DIR/$FILE"
