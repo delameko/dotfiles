@@ -1,16 +1,18 @@
 FILEPATH=$(readlink -f "$0")
 DIR=$(dirname "$FILEPATH")
 
-while true; do
-    read -p "do you wish to install Vundle for Vim? " yn
-    case $yn in
-        [Yy]* ) git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle;
-                vim +BundleInstall +qall;
-                break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+if [ ! -d "$HOME/.vim/bundle/vundle" ] ; then
+    while true; do
+        read -p "do you wish to install Vundle for Vim? " yn
+        case $yn in
+            [Yy]* ) git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle;
+                    vim +BundleInstall +qall;
+                    break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
 
 if ! command -v zsh > /dev/null; then
     while true; do
