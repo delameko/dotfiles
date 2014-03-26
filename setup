@@ -1,5 +1,42 @@
-FILEPATH=$(readlink -f "$0")
+FILEPATH=$(greadlink -f "$0")
 DIR=$(dirname "$FILEPATH")
+
+FILES=".bash .bashrc .gemrc .gvimrc .tmux.conf .vimrc .vim .zshrc"
+
+
+
+for FILE in $FILES; do
+    SOURCE="$DIR/$FILE"
+    TARGET="$HOME/$FILE"
+
+    move_and_symlink_file () {
+        if [ ! -h "${TARGET}" ]; then # if target not a symlink
+            if [ -e "${TARGET}" ] ; then # if target exists 
+                echo "${FILE} exists, moving to ${FILE}.old";
+                mv -f $TARGET $TARGET.old # move target;
+           fi
+        fi
+    
+        echo
+        echo "Symlinking $SOURCE to $TARGET"
+        if [ -h "${TARGET}" ]; then
+            ln -fs $SOURCE $TARGET
+        else
+            ln -s $SOURCE $TARGET
+        fi
+        echo
+    }
+
+    while true; do
+        read -p "Do you wish to symlink ${FILE}? " yn
+        case $yn in
+            [Yy]* ) move_and_symlink_file; 
+                    break;;
+            [Nn]* ) break;;
+            *)    echo "Please answer (y)es or (n)o.";;
+        esac
+    done
+done
 
 if [ ! -d "$HOME/.vim/bundle/vundle" ] ; then
     while true; do
@@ -39,25 +76,4 @@ if [ ! -d "$HOME/.oh-my-zsh" ] ; then
     done
 fi
 
-# .bash .bashrc
-FILES=".gemrc .gvimrc .tmux.conf .vimrc .vim .zshrc"
-
-for FILE in $FILES; do
-  SOURCE="$DIR/$FILE"
-  TARGET="$HOME/$FILE"
-
-  if [ -d "${TARGET}" ] ; then
-    echo "${FILE} exists, moving to ${FILE}.old"
-    mv -f $TARGET $TARGET.old
-  else
-    if [ -f "${TARGET}" ]; then
-      echo "${FILE} exists, moving to ${FILE}.old"
-      mv -f $TARGET $TARGET.old
-    fi
-  fi
-  echo
-  echo "Symlinking $SOURCE to $TARGET"
-  ln -s $SOURCE $TARGET
-  echo
-done
 
