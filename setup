@@ -1,7 +1,9 @@
+#!/bin/sh
+
 FILEPATH=$(greadlink -f "$0")
 DIR=$(dirname "$FILEPATH")
 
-FILES=".bash .bashrc .gemrc .gvimrc .tmux.conf .vimrc .vim .zshrc"
+FILES=".bash .bashrc .gemrc .gitignore_global .gvimrc .tmux.conf .vimrc .vim .zshrc"
 
 
 
@@ -11,12 +13,12 @@ for FILE in $FILES; do
 
     move_and_symlink_file () {
         if [ ! -h "${TARGET}" ]; then # if target not a symlink
-            if [ -e "${TARGET}" ] ; then # if target exists 
+            if [ -e "${TARGET}" ] ; then # if target exists
                 echo "${FILE} exists, moving to ${FILE}.old";
                 mv -f $TARGET $TARGET.old # move target;
            fi
         fi
-    
+
         echo
         echo "Symlinking $SOURCE to $TARGET"
         if [ -h "${TARGET}" ]; then
@@ -30,7 +32,7 @@ for FILE in $FILES; do
     while true; do
         read -p "Do you wish to symlink ${FILE}? " yn
         case $yn in
-            [Yy]* ) move_and_symlink_file; 
+            [Yy]* ) move_and_symlink_file;
                     break;;
             [Nn]* ) break;;
             *)    echo "Please answer (y)es or (n)o.";;
