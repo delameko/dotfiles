@@ -138,6 +138,9 @@ let g:airline_theme='dark'
 autocmd FileType html,eruby let b:closetag_html_style=1
 "autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
 
+" Commentary plugin
+map <D-/> gc<CR>
+
 " Indent Guides plugin
 if has("gui_running")
   let g:indent_guides_auto_colors=1
