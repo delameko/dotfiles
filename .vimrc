@@ -42,6 +42,9 @@ set background=dark
 colorscheme gruvbox
 " colorscheme distinguished
 
+" Custom filetypes
+autocmd BufNewFile,BufRead *.view set filetype=html
+
 " Change the colour paste column 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let &colorcolumn=join(range(81,999),",")
