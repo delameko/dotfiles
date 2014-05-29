@@ -12,14 +12,17 @@ Bundle 'docunext/closetag.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
+Bundle 'Lokaltog/vim-distinguished'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
+Bundle 'morhetz/gruvbox'
 Bundle 'c9s/gsession.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tomasr/molokai'
+Bundle 'sickill/vim-monokai'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'ReekenX/vim-rename2'
@@ -35,7 +38,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 filetype plugin indent on
 
 syntax on
-colorscheme molokai
+set background=dark
+colorscheme gruvbox
+" colorscheme distinguished
 
 " Change the colour paste column 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
