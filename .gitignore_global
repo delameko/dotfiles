@@ -13,6 +13,7 @@
 .svn
 
 # Ignore Vim files
+*.swo
 *.swp
 
 
