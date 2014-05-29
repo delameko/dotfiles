@@ -34,6 +34,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
