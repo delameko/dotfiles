@@ -179,8 +179,13 @@ nmap <Leader>tb :TagbarToggle<CR>
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-" Write all files when focus lost
-autocmd FocusLost * silent! :wa
+" autocmd BufWrite * if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
+
+" Write all files when focus lost or switch tab
+autocmd FocusLost,WinLeave * silent! :wa
+
+" Exit insertmode on save or focus lost
+autocmd BufWrite,FocusLost * if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
 
 " Highlight cursor line, but only in the active pane.
 augroup CursorLine
