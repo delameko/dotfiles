@@ -70,6 +70,8 @@ set autoindent                  " Auto-indent
 set autoread                    " Auto read a file after external changes
 set autowriteall                " Auto write when leaving buffer
 set backspace=indent,eol,start  " Allow backspace to work more like expected
+set backupdir=~/.vim/backup     " Use a backup directory
+set directory=~/.vim/swap       " Use a directory for swap files
 set encoding=utf-8              " UTF-8
 set expandtab                   " Expand tab characters to spaces
 set exrc secure                 " enable per-directory secure .vimrc files
