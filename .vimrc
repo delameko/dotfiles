@@ -160,7 +160,11 @@ let g:used_javascript_libs = 'underscore,angularjs'
 " Syntastic plugin
 let g:syntastic_auto_loc_list=1   " Automatically show error log on save
 let g:syntastic_loc_list_height=3 " Only show three errors at a time.
-let g:synyastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$']
+let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
+let g:syntastic_jshint_exec='/usr/local/bin/jshint'
+let g:syntastic_jshint_conf='~/.jshintrc'
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
 hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
 hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
 hi SyntasticErrorSign guifg=white guibg=red
