@@ -142,6 +142,9 @@ autocmd FileType html,eruby let b:closetag_html_style=1
 " Commentary plugin
 map <D-/> gc<CR>
 
+" Eclim plugin
+let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
+
 " Indent Guides plugin
 if has("gui_running")
   let g:indent_guides_auto_colors=1
@@ -162,7 +165,8 @@ let g:used_javascript_libs = 'underscore,angularjs'
 let g:syntastic_auto_loc_list=1   " Automatically show error log on save
 let g:syntastic_loc_list_height=3 " Only show three errors at a time.
 let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
-let g:syntastic_jshint_exec='/usr/local/bin/jshint'
+let g:syntastic_javascript_checkers=['jshint']
+" let g:syntastic_jshint_exec='/usr/local/bin/jshint'
 let g:syntastic_jshint_conf='~/.jshintrc'
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
@@ -233,3 +237,4 @@ endif
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
