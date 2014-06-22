@@ -4,99 +4,120 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-"Bundle 'mileszs/ack.vim'
-Bundle 'bling/vim-airline'
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#tabline#buffer_nr_show=1
-    let g:airline#extensions#tabline#fnamemod=':t'
-    let g:airline_detect_modified=1
-    let g:airline_detect_paste=1
-    let g:airline_enable_branch=1
-    let g:airline_enable_syntastic=1
-    " if has("gui_running")
+" Themes
+    "Bundle 'Lokaltog/vim-distinguished'
+    Bundle 'morhetz/gruvbox'
+    "Bundle 'tomasr/molokai'
+    "Bundle 'sickill/vim-monokai'
+
+" Vundle
+    Bundle 'gmarik/vundle'
+
+" Airline
+    Bundle 'bling/vim-airline'
+        let g:airline#extensions#tabline#enabled=1
+        let g:airline#extensions#tabline#buffer_nr_show=1
+        let g:airline#extensions#tabline#fnamemod=':t'
+        let g:airline_detect_modified=1
+        let g:airline_detect_paste=1
+        let g:airline_enable_branch=1
+        let g:airline_enable_syntastic=1
         let g:airline_left_sep = ''
         let g:airline_right_sep = ''
-    " else
-        " let g:airline_left_sep = '▶'
-        " let g:airline_right_sep = '◀'
-        " let g:airline_branch_prefix = '⎇ '
-        " let g:airline_readonly_symbol = 'Þ'
-    " endif
-    let g:airline_powerline_fonts=1
-    let g:airline_theme='dark'
-"Bundle 'tpope/vim-bundler'
-Bundle 'docunext/closetag.vim'
-    autocmd FileType html,eruby let b:closetag_html_style=1
-    "autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako
-Bundle 'tpope/vim-commentary'
-    imap <D-/> gcc<CR>
-    xmap <D-/> gc<CR>
-Bundle 'kien/ctrlp.vim'
-"Bundle 'Raimondi/delimitMate'
-"Bundle 'Lokaltog/vim-distinguished'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'tpope/vim-fugitive'
-Bundle 'morhetz/gruvbox'
-"Bundle 'c9s/gsession.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-    if has("gui_running")
-        let g:indent_guides_auto_colors=1
-    else
-        let g:indent_guides_auto_colors=0
-        hi IndentGuidesOdd  ctermbg=233
-        hi IndentGuidesEven ctermbg=234
-    endif
-    let g:indent_guides_color_change_percent=5
-    let g:indent_guides_enable_on_vim_startup=1
-    let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-    let g:indent_guides_start_level=2
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'jelera/vim-javascript-syntax'
-    let g:used_javascript_libs = 'underscore,angularjs'
-"Bundle 'edsono/vim-matchit'
-"Bundle 'tomasr/molokai'
-"Bundle 'sickill/vim-monokai'
-Bundle 'scrooloose/nerdtree'
-    let NERDTreeShowBookmarks=1
-    let NERDTreeChDirMode=2
-    let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
-    let NERDTreeQuitOnOpen=0
-    let NERDTreeShowHidden=1
-    let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
-    nmap <leader>nt :NERDTree<CR>
-"Bundle 'tpope/vim-rails'
-"Bundle 'ReekenX/vim-rename2'
-"Bundle 'kshenoy/vim-signature'
-"Bundle 'msanders/snipmate.vim'
-"Bundle 'SuperTab'
-"Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-    let g:syntastic_auto_loc_list=1   " Automatically show error log on save
-    let g:syntastic_loc_list_height=3 " Only show three errors at a time.
-    let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
-    let g:syntastic_javascript_checkers=['jshint']
-    let g:syntastic_jshint_conf='~/.jshintrc'
-    let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
-    let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
-    hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-    hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-    hi SyntasticErrorSign guifg=white guibg=red
-    hi SyntasticWarningSign guifg=white guibg=purple
-"Bundle 'godlygeek/tabular'
-"Bundle 'majutsushi/tagbar'
-    "nmap <Leader>tb :TagbarToggle<CR>
-    "let g:tagbar_ctags_bin = /usr/local/bin/ctags
-    "let g:tagbar_width = 20
-"Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Valloric/YouCompleteMe'
+        let g:airline_powerline_fonts=1
+        let g:airline_theme='dark'
+
+" CloseTag
+    Bundle 'docunext/closetag.vim'
+        autocmd FileType html,eruby let b:closetag_html_style=1
+
+" Commentary
+    Bundle 'tpope/vim-commentary'
+        imap <D-/> gcc<CR>
+        xmap <D-/> gc<CR>
+
+" cSyntaxAfter
+    Bundle 'cSyntaxAfter'
+        autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,h,javascript} call CSyntaxAfter()
+
+" ctrl-p
+    Bundle 'kien/ctrlp.vim'
+
+" Eclim
+    Bundle 'initrc/eclim-vundle'
+        let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
+        let g:EclimLocateFileDefaultAction = 'edit'
+        nnoremap <silent> <D-R> :LocateFile<CR>
+
+" Expand Region
+    Bundle 'terryma/vim-expand-region'
+        vmap v <Plug>(expand_region_expand)
+        vmap <C-v> <Plug>(expand_region_shrink)
+
+" Indent Guides
+    Bundle 'nathanaelkane/vim-indent-guides'
+        if has("gui_running")
+            let g:indent_guides_auto_colors=1
+        else
+            let g:indent_guides_auto_colors=0
+            hi IndentGuidesOdd  ctermbg=233
+            hi IndentGuidesEven ctermbg=234
+        endif
+        let g:indent_guides_color_change_percent=5
+        let g:indent_guides_enable_on_vim_startup=1
+        let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+        let g:indent_guides_start_level=2
+
+" JavaScript Syntax
+    Bundle 'jelera/vim-javascript-syntax'
+        let g:used_javascript_libs = 'underscore,angularjs'
+
+" JavaScript Library Syntax
+    Bundle 'othree/javascript-libraries-syntax.vim'
+
+" NERDTree
+    Bundle 'scrooloose/nerdtree'
+        let NERDTreeShowBookmarks=1
+        let NERDTreeChDirMode=2
+        let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
+        let NERDTreeQuitOnOpen=0
+        let NERDTreeShowHidden=1
+        let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
+        nmap <leader>nt :NERDTree<CR>
+
+" snipMate
+    Bundle 'MarcWeber/vim-addon-mw-utils'
+    Bundle 'tomtom/tlib_vim'
+    Bundle 'msanders/snipmate.vim'
+    Bundle 'honza/vim-snippets'
+"        let g:snips_trigger_key = '<S-tab>'
+"        let g:snips_trigger_key_backwards = '<C-S-tab>'
+
+" surround
+    Bundle 'tpope/vim-surround'
+
+" Syntastic
+    Bundle 'scrooloose/syntastic'
+        let g:syntastic_auto_loc_list=1   " Automatically show error log on save
+        let g:syntastic_loc_list_height=3 " Only show three errors at a time.
+        let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
+        let g:syntastic_javascript_checkers=['jshint']
+        let g:syntastic_jshint_conf='~/.jshintrc'
+        let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
+        let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
+        hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+        hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+        hi SyntasticErrorSign guifg=white guibg=red
+        hi SyntasticWarningSign guifg=white guibg=purple
+
+" YouCompleteMe
+    Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
 syntax on
 set background=dark
 colorscheme gruvbox
-" colorscheme distinguished
 
 " Custom filetypes
 autocmd BufNewFile,BufRead *.view set filetype=html
@@ -110,11 +131,14 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Change leader to comma
-let mapleader=","
+let mapleader="\<Space>"
 
 " Quick editing of .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Quick save
+nnoremap <Leader>w :w<CR>
 
 " Use semi-colon for commands
 nnoremap ; :
@@ -167,11 +191,6 @@ set undolevels=1000             " Use many levels of undo
 set wildmenu                    " Enable command completion in the command line
 set wildmode=list:longest,full  " Auto complete to the longest match
 set ws                          " Search commands wrap the end of buffer
-
-" Eclim plugin
-let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
-let g:EclimLocateFileDefaultAction = 'edit'
-nnoremap <silent> <D-R> :LocateFile<CR>
 
 " Automatically cd into the directory that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
