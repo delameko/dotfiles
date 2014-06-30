@@ -84,7 +84,7 @@ call vundle#rc()
         let NERDTreeQuitOnOpen=0
         let NERDTreeShowHidden=1
         let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
-        nmap <leader>nt :NERDTree<CR>
+        nmap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " snipMate
     Bundle 'MarcWeber/vim-addon-mw-utils'
