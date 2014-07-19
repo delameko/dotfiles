@@ -111,6 +111,9 @@ call vundle#rc()
         hi SyntasticErrorSign guifg=white guibg=red
         hi SyntasticWarningSign guifg=white guibg=purple
 
+" Tern - JavaScript editing support - also install npm install -g git://github.com/ramitos/jsctags.git
+    Plugin 'marijnh/tern_for_vim'
+
 " YouCompleteMe
     Plugin 'Valloric/YouCompleteMe'
 
