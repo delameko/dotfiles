@@ -97,11 +97,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>1008 155 924 485 0 0 2560 1578 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>2094 1183 384 129 0 0 2560 1578 </string>
+	<string>2145 984 384 129 0 0 2560 1578 </string>
 	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
 	<string>776 1059 260 42 0 0 2560 1578 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>540 724 1040 656 0 0 2560 1578 </string>
+	<string>1325 47 1234 1531 0 0 2560 1578 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>2 48 2557 1530 0 0 2560 1578 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -830,6 +832,8 @@
 			<string>/Users/delameko</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -892,7 +896,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-06-26T21:54:45Z</date>
+	<date>2014-07-03T08:34:25Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -926,7 +930,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>.Lucida Grande UI</string>
+	<string>Lucida Grande</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>

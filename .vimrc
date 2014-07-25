@@ -6,16 +6,16 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Themes
-    "Bundle 'Lokaltog/vim-distinguished'
-    Bundle 'morhetz/gruvbox'
-    "Bundle 'tomasr/molokai'
-    "Bundle 'sickill/vim-monokai'
+    "Plugin 'Lokaltog/vim-distinguished'
+    Plugin 'morhetz/gruvbox'
+    "Plugin 'tomasr/molokai'
+    "Plugin 'sickill/vim-monokai'
 
 " Vundle
-    Bundle 'gmarik/vundle'
+    Plugin 'gmarik/vundle'
 
 " Airline
-    Bundle 'bling/vim-airline'
+    Plugin 'bling/vim-airline'
         let g:airline#extensions#tabline#enabled=1
         let g:airline#extensions#tabline#buffer_nr_show=1
         let g:airline#extensions#tabline#fnamemod=':t'
@@ -29,34 +29,34 @@ call vundle#rc()
         let g:airline_theme='dark'
 
 " CloseTag
-    Bundle 'docunext/closetag.vim'
+    Plugin 'docunext/closetag.vim'
         autocmd FileType html,eruby let b:closetag_html_style=1
 
 " Commentary
-    Bundle 'tpope/vim-commentary'
+    Plugin 'tpope/vim-commentary'
         imap <D-/> gcc<CR>
         xmap <D-/> gc<CR>
 
 " cSyntaxAfter
-    Bundle 'cSyntaxAfter'
+    Plugin 'cSyntaxAfter'
         autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,h,javascript} call CSyntaxAfter()
 
 " ctrl-p
-    Bundle 'kien/ctrlp.vim'
+    Plugin 'kien/ctrlp.vim'
 
 " Eclim
-    Bundle 'initrc/eclim-vundle'
+    Plugin 'initrc/eclim-vundle'
         let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
         let g:EclimLocateFileDefaultAction = 'edit'
         nnoremap <silent> <D-R> :LocateFile<CR>
 
 " Expand Region
-    Bundle 'terryma/vim-expand-region'
+    Plugin 'terryma/vim-expand-region'
         vmap v <Plug>(expand_region_expand)
         vmap <C-v> <Plug>(expand_region_shrink)
 
 " Indent Guides
-    Bundle 'nathanaelkane/vim-indent-guides'
+    Plugin 'nathanaelkane/vim-indent-guides'
         if has("gui_running")
             let g:indent_guides_auto_colors=1
         else
@@ -70,14 +70,14 @@ call vundle#rc()
         let g:indent_guides_start_level=2
 
 " JavaScript Syntax
-    Bundle 'jelera/vim-javascript-syntax'
+    Plugin 'jelera/vim-javascript-syntax'
         let g:used_javascript_libs = 'underscore,angularjs'
 
 " JavaScript Library Syntax
-    Bundle 'othree/javascript-libraries-syntax.vim'
+    Plugin 'othree/javascript-libraries-syntax.vim'
 
 " NERDTree
-    Bundle 'scrooloose/nerdtree'
+    Plugin 'scrooloose/nerdtree'
         let NERDTreeShowBookmarks=1
         let NERDTreeChDirMode=2
         let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
@@ -87,18 +87,18 @@ call vundle#rc()
         nmap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " snipMate
-    Bundle 'MarcWeber/vim-addon-mw-utils'
-    Bundle 'tomtom/tlib_vim'
-    Bundle 'msanders/snipmate.vim'
-    Bundle 'honza/vim-snippets'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'msanders/snipmate.vim'
+    Plugin 'honza/vim-snippets'
 "        let g:snips_trigger_key = '<S-tab>'
 "        let g:snips_trigger_key_backwards = '<C-S-tab>'
 
 " surround
-    Bundle 'tpope/vim-surround'
+    Plugin 'tpope/vim-surround'
 
 " Syntastic
-    Bundle 'scrooloose/syntastic'
+    Plugin 'scrooloose/syntastic'
         let g:syntastic_auto_loc_list=1   " Automatically show error log on save
         let g:syntastic_loc_list_height=3 " Only show three errors at a time.
         let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
@@ -111,8 +111,11 @@ call vundle#rc()
         hi SyntasticErrorSign guifg=white guibg=red
         hi SyntasticWarningSign guifg=white guibg=purple
 
+" Tern - JavaScript editing support - also install npm install -g git://github.com/ramitos/jsctags.git
+    Plugin 'marijnh/tern_for_vim'
+
 " YouCompleteMe
-    Bundle 'Valloric/YouCompleteMe'
+    Plugin 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
