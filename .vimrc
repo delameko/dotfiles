@@ -114,6 +114,8 @@ call vundle#rc()
         let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
         let g:syntastic_javascript_checkers=['jshint']
         let g:syntastic_jshint_conf='~/.jshintrc'
+        let g:syntastic_ruby_checkers=['rubocop']
+        let g:syntastic_scss_checkers=['scss_lint']
         let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
         let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
         hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
