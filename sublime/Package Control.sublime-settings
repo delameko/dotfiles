@@ -12,12 +12,11 @@
 	"ignore_vcs_packages": true,
 	"installed_packages":
 	[
-		"AngularJS",
-		"AngularJS Attributes Completion",
 		"Emmet",
 		"LESS",
 		"Package Control",
 		"Pretty JSON",
-		"Sass"
+		"Sass",
+		"Theme - Flatland"
 	]
 }
