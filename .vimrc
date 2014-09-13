@@ -5,7 +5,7 @@ filetype off
 " Change leader to space
 let mapleader="\<Space>"
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle.vim/
 call vundle#rc()
 
 " Themes
@@ -16,6 +16,9 @@ call vundle#rc()
 
 " Vundle
     Plugin 'gmarik/vundle'
+
+" Ag
+    Plugin 'rking/ag.vim'
 
 " Airline
     Plugin 'bling/vim-airline'
@@ -74,11 +77,13 @@ call vundle#rc()
 
 " JavaScript Syntax
     Plugin 'jelera/vim-javascript-syntax'
-        let g:used_javascript_libs = 'underscore,angularjs'
 
 " JavaScript Library Syntax
     Plugin 'othree/javascript-libraries-syntax.vim'
+        let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,requirejs,jasmine'
 
+" Less
+    Plugin 'groenewege/vim-less'
 " JSON Syntax
     Plugin 'elzr/vim-json'
 
@@ -91,9 +96,14 @@ call vundle#rc()
         let NERDTreeShowBookmarks=1
         let NERDTreeChDirMode=2
         let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
+        let NERDTreeChDirMode=1
+        let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
+        let NERDTreeMinimalUI=1
         let NERDTreeQuitOnOpen=0
+        let NERDTreeShowBookmarks=1
         let NERDTreeShowHidden=1
         let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
+        let NERDTreeWinSize=20
         nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " snipMate
@@ -167,6 +177,7 @@ set autoindent                  " Auto-indent
 set autoread                    " Auto read a file after external changes
 set autowriteall                " Auto write when leaving buffer
 set backspace=indent,eol,start  " Allow backspace to work more like expected
+set columns=85                  " Set soft wrap width
 set encoding=utf-8              " UTF-8
 set expandtab                   " Expand tab characters to spaces
 set exrc secure                 " enable per-directory secure .vimrc files
