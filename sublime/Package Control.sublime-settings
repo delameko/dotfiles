@@ -1,0 +1,23 @@
+{
+	"auto_upgrade_ignore":
+	[
+		"SublimeLinter"
+	],
+	"auto_upgrade_last_run": null,
+	"files_to_ignore":
+	[
+		".DS_Store",
+		"*.sublime-project"
+	],
+	"ignore_vcs_packages": true,
+	"installed_packages":
+	[
+		"AngularJS",
+		"AngularJS Attributes Completion",
+		"Emmet",
+		"LESS",
+		"Package Control",
+		"Pretty JSON",
+		"Sass"
+	]
+}
