@@ -48,10 +48,10 @@ call vundle#rc()
     Plugin 'kien/ctrlp.vim'
 
 " Eclim
-    Plugin 'initrc/eclim-vundle'
-        let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
-        let g:EclimLocateFileDefaultAction = 'edit'
-        nnoremap <silent> <D-R> :LocateFile<CR>
+    " Plugin 'initrc/eclim-vundle'
+    "     let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
+    "     let g:EclimLocateFileDefaultAction = 'edit'
+    "     nnoremap <silent> <D-R> :LocateFile<CR>
 
 " Expand Region
     Plugin 'terryma/vim-expand-region'
