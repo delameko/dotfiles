@@ -53,11 +53,6 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
-# Include stuff that should only be on this
-if [[ -r ~/.zshrc.local ]]; then
-    source ~/.zshrc.local
-fi
-
 ###########
 # ALIASES #
 ###########
@@ -76,3 +71,10 @@ elif [[ "$(uname)" -eq "Linux" ]]; then
     alias update='sudo aptitude update'
     alias upgrade='sudo aptitude upgrade'
 fi
+
+
+# Include stuff unique to this machine
+if [[ -r ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi
+
