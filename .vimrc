@@ -97,10 +97,10 @@ call vundle#rc()
         nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " snipMate
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'msanders/snipmate.vim'
-    Plugin 'honza/vim-snippets'
+    " Plugin 'MarcWeber/vim-addon-mw-utils'
+    " Plugin 'tomtom/tlib_vim'
+    " Plugin 'msanders/snipmate.vim'
+    " Plugin 'honza/vim-snippets'
 "        let g:snips_trigger_key = '<S-tab>'
 "        let g:snips_trigger_key_backwards = '<C-S-tab>'
 
