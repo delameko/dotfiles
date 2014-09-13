@@ -2,6 +2,9 @@ set nocompatible
 set encoding=utf-8
 filetype off
 
+" Change leader to space
+let mapleader="\<Space>"
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
