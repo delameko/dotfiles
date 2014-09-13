@@ -95,13 +95,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1831 77 663 270 0 0 2560 1578 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1008 155 924 485 0 0 2560 1578 </string>
+	<string>-1552 292 924 485 -2560 160 2560 1418 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>2145 984 384 129 0 0 2560 1578 </string>
 	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
 	<string>776 1059 260 42 0 0 2560 1578 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1325 47 1234 1531 0 0 2560 1578 </string>
+	<string>1270 13 1290 1565 0 0 2560 1578 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>2 48 2557 1530 0 0 2560 1578 </string>
 	<key>New Bookmarks</key>
@@ -880,7 +880,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Volumes/Users/delameko/.dotfiles</string>
+	<string>~/.dotfiles</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -896,7 +896,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-07-03T08:34:25Z</date>
+	<date>2014-09-13T10:04:25Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -938,6 +938,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140518</string>
+	<string>1.0.0.20140629</string>
 </dict>
 </plist>
