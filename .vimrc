@@ -94,7 +94,7 @@ call vundle#rc()
         let NERDTreeQuitOnOpen=0
         let NERDTreeShowHidden=1
         let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
-        nmap <silent> <leader>nt :NERDTreeToggle<CR>
+        nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " snipMate
     Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -143,9 +143,6 @@ let &colorcolumn=join(range(81,999),",")
 " Change the cursor in terminal so block in normal, underscore in insert
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Change leader to comma
-let mapleader="\<Space>"
 
 " Quick editing of .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
