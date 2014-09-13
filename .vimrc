@@ -79,6 +79,9 @@ call vundle#rc()
 " JavaScript Library Syntax
     Plugin 'othree/javascript-libraries-syntax.vim'
 
+" JSON Syntax
+    Plugin 'elzr/vim-json'
+
 " NERDTree
     Plugin 'scrooloose/nerdtree'
         let NERDTreeShowBookmarks=1
