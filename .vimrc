@@ -2,7 +2,7 @@ set nocompatible
 set encoding=utf-8
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle.vim/
 call vundle#rc()
 
 " Themes
@@ -13,6 +13,9 @@ call vundle#rc()
 
 " Vundle
     Plugin 'gmarik/vundle'
+
+" Ag
+    Plugin 'rking/ag.vim'
 
 " Airline
     Plugin 'bling/vim-airline'
@@ -71,20 +74,25 @@ call vundle#rc()
 
 " JavaScript Syntax
     Plugin 'jelera/vim-javascript-syntax'
-        let g:used_javascript_libs = 'underscore,angularjs'
 
 " JavaScript Library Syntax
     Plugin 'othree/javascript-libraries-syntax.vim'
+        let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,requirejs,jasmine'
+
+" Less
+    Plugin 'groenewege/vim-less'
 
 " NERDTree
     Plugin 'scrooloose/nerdtree'
-        let NERDTreeShowBookmarks=1
-        let NERDTreeChDirMode=2
         let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
-        let NERDTreeQuitOnOpen=0
-        let NERDTreeShowHidden=1
+        let NERDTreeChDirMode=1
         let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
-        nmap <silent> <leader>nt :NERDTreeToggle<CR>
+        let NERDTreeMinimalUI=1
+        let NERDTreeQuitOnOpen=0
+        let NERDTreeShowBookmarks=1
+        let NERDTreeShowHidden=1
+        let NERDTreeWinSize=20
+        nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " snipMate
     Plugin 'MarcWeber/vim-addon-mw-utils'
