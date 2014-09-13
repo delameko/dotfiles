@@ -82,6 +82,10 @@ call vundle#rc()
 " JSON Syntax
     Plugin 'elzr/vim-json'
 
+" Neocomplcache
+    Plugin 'Shougo/neocomplcache.vim'
+        let g:neocomplcache_enable_at_startup = 1
+
 " NERDTree
     Plugin 'scrooloose/nerdtree'
         let NERDTreeShowBookmarks=1
@@ -121,7 +125,7 @@ call vundle#rc()
     Plugin 'marijnh/tern_for_vim'
 
 " YouCompleteMe
-    Plugin 'Valloric/YouCompleteMe'
+"    Plugin 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
