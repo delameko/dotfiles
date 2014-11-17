@@ -15,10 +15,10 @@
 	],
 	"font_size": 16,
 	"highlight_line": true,
-	"hot_exit": true,
 	"ignored_packages":
 	[
-		".DS_Store"
+		".DS_Store",
+		"Markdown"
 	],
 	"margin": 6,
 	"open_files_in_new_window": false,

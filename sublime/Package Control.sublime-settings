@@ -12,11 +12,14 @@
 	"ignore_vcs_packages": true,
 	"installed_packages":
 	[
+		"DocBlockr",
 		"Emmet",
 		"LESS",
+		"MarkdownEditing",
 		"Package Control",
 		"Pretty JSON",
 		"Sass",
+		"StripHTML",
 		"SublimeLinter",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-haml",
