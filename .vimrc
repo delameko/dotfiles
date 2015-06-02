@@ -1,21 +1,16 @@
 set nocompatible
 set encoding=utf-8
+set shell=/bin/bash
 filetype off
 
 " Change leader to space
 let mapleader="\<Space>"
 
-set rtp+=~/.vim/bundle/vundle.vim/
-call vundle#rc()
-
-" Themes
-    "Plugin 'Lokaltog/vim-distinguished'
-    Plugin 'morhetz/gruvbox'
-    "Plugin 'tomasr/molokai'
-    "Plugin 'sickill/vim-monokai'
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " Vundle
-    Plugin 'gmarik/vundle'
+    Plugin 'gmarik/Vundle.vim'
 
 " Ag
     Plugin 'rking/ag.vim'
@@ -27,8 +22,8 @@ call vundle#rc()
         let g:airline#extensions#tabline#fnamemod=':t'
         let g:airline_detect_modified=1
         let g:airline_detect_paste=1
-        let g:airline_enable_branch=1
-        let g:airline_enable_syntastic=1
+        let g:airline#extensions#branch#enable=1
+        let g:airline#extensions#syntastic#enable=1
         let g:airline_left_sep = ''
         let g:airline_right_sep = ''
         let g:airline_powerline_fonts=1
@@ -84,6 +79,7 @@ call vundle#rc()
 
 " Less
     Plugin 'groenewege/vim-less'
+
 " JSON Syntax
     Plugin 'elzr/vim-json'
 
@@ -138,6 +134,14 @@ call vundle#rc()
 
 " YouCompleteMe
 "    Plugin 'Valloric/YouCompleteMe'
+
+" Themes
+    "Plugin 'Lokaltog/vim-distinguished'
+    Plugin 'morhetz/gruvbox'
+    "Plugin 'tomasr/molokai'
+    "Plugin 'sickill/vim-monokai'
+
+call vundle#end()
 
 filetype plugin indent on
 
