@@ -10,23 +10,35 @@
 		"*.sublime-project"
 	],
 	"ignore_vcs_packages": true,
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
+		"Better CoffeeScript",
+		"Better RSpec",
+		"Better TypeScript",
 		"DocBlockr",
 		"Emmet",
+		"Haxe",
 		"LESS",
 		"MarkdownEditing",
+		"nginx",
 		"Package Control",
+		"PlainTasks",
 		"Pretty JSON",
 		"Sass",
 		"StripHTML",
 		"SublimeLinter",
+		"SublimeLinter-coffeelint",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-haml",
 		"SublimeLinter-jscs",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
 		"SublimeLinter-rubocop",
-		"Theme - Flatland"
+		"SublimeLinter-ruby",
+		"Theme - Flatland",
+		"TypeScript"
 	]
 }
