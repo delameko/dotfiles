@@ -1456,10 +1456,6 @@
 	<true/>
 	<key>MaxVertically</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 4</string>
-	<key>NSFontPanelPreviewHeight</key>
-	<real>0.0</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.dotfiles</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -1469,17 +1465,11 @@
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>1831 77 663 270 0 0 2560 1578 </string>
+	<string>573 43 650 612 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1008 155 924 485 0 0 2560 1578 </string>
-	<key>NSWindow Frame SUStatusFrame</key>
-	<string>2145 984 384 129 0 0 2560 1578 </string>
-	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
-	<string>776 1059 260 42 0 0 2560 1578 </string>
+	<string>269 126 924 485 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-792 705 790 873 -2560 160 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2 48 2557 1530 0 0 2560 1578 </string>
+	<string>3 15 1423 858 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1799,11 +1789,11 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>AnonymicePowerline 11</string>
+			<string>Menlo-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>AnonymicePowerline 11</string>
+			<string>Menlo-Regular 11</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2296,7 +2286,7 @@
 			<key>Name</key>
 			<string>Solarized Dark</string>
 			<key>Non Ascii Font</key>
-			<string>AnonymicePowerline 14</string>
+			<string>InputMono-ExtraLight 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -2523,7 +2513,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/.dotfiles</string>
+	<string>/Users/delameko/.dotfiles</string>
 	<key>PromptOnClose</key>
 	<false/>
 	<key>PromptOnQuit</key>
@@ -2543,7 +2533,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-09-17T00:18:52Z</date>
+	<date>2015-04-13T14:36:51Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2617,7 +2607,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.Helvetica Neue DeskInterface</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>
@@ -2629,6 +2619,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140629</string>
+	<string>2.0.0.20141103</string>
 </dict>
 </plist>
