@@ -13,7 +13,7 @@ call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
 
 " Ag
-    Plugin 'rking/ag.vim'
+"    Plugin 'rking/ag.vim'
 
 " Airline
     Plugin 'bling/vim-airline'
@@ -39,8 +39,8 @@ call vundle#begin()
         xmap <D-/> gc<CR>
 
 " cSyntaxAfter
-    Plugin 'cSyntaxAfter'
-        autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,h,javascript} call CSyntaxAfter()
+"    Plugin 'cSyntaxAfter'
+"        autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,h,javascript} call CSyntaxAfter()
 
 " ctrl-p
     Plugin 'kien/ctrlp.vim'
@@ -52,9 +52,9 @@ call vundle#begin()
     "     nnoremap <silent> <D-R> :LocateFile<CR>
 
 " Expand Region
-    Plugin 'terryma/vim-expand-region'
-        vmap v <Plug>(expand_region_expand)
-        vmap <C-v> <Plug>(expand_region_shrink)
+"    Plugin 'terryma/vim-expand-region'
+"        vmap v <Plug>(expand_region_expand)
+"        vmap <C-v> <Plug>(expand_region_shrink)
 
 " Indent Guides
     Plugin 'nathanaelkane/vim-indent-guides'
@@ -78,27 +78,24 @@ call vundle#begin()
         let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,requirejs,jasmine'
 
 " Less
-    Plugin 'groenewege/vim-less'
+"    Plugin 'groenewege/vim-less'
 
 " JSON Syntax
     Plugin 'elzr/vim-json'
 
 " Neocomplcache
-    Plugin 'Shougo/neocomplcache.vim'
-        let g:neocomplcache_enable_at_startup = 1
+"    Plugin 'Shougo/neocomplcache.vim'
+"        let g:neocomplcache_enable_at_startup = 1
 
 " NERDTree
     Plugin 'scrooloose/nerdtree'
-        let NERDTreeShowBookmarks=1
-        let NERDTreeChDirMode=2
         let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
         let NERDTreeChDirMode=1
-        let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
+        let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.idea','\.DS_Store']
         let NERDTreeMinimalUI=1
         let NERDTreeQuitOnOpen=0
         let NERDTreeShowBookmarks=1
         let NERDTreeShowHidden=1
-        let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.DS_Store']
         let NERDTreeWinSize=20
         nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
@@ -114,23 +111,23 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'
 
 " Syntastic
-    Plugin 'scrooloose/syntastic'
-        let g:syntastic_auto_loc_list=1   " Automatically show error log on save
-        let g:syntastic_loc_list_height=3 " Only show three errors at a time.
-        let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
-        let g:syntastic_javascript_checkers=['jshint']
-        let g:syntastic_jshint_conf='~/.jshintrc'
-        let g:syntastic_ruby_checkers=['rubocop']
-        let g:syntastic_scss_checkers=['scss_lint']
-        let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
-        let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
-        hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-        hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-        hi SyntasticErrorSign guifg=white guibg=red
-        hi SyntasticWarningSign guifg=white guibg=purple
+"    Plugin 'scrooloose/syntastic'
+"        let g:syntastic_auto_loc_list=1   " Automatically show error log on save
+"        let g:syntastic_loc_list_height=3 " Only show three errors at a time.
+"        let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
+"        let g:syntastic_javascript_checkers=['jshint']
+"        let g:syntastic_jshint_conf='~/.jshintrc'
+"        let g:syntastic_ruby_checkers=['rubocop']
+"        let g:syntastic_scss_checkers=['scss_lint']
+"        let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
+"        let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
+"        hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+"        hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+"        hi SyntasticErrorSign guifg=white guibg=red
+"        hi SyntasticWarningSign guifg=white guibg=purple
 
 " Tern - JavaScript editing support - also install npm install -g git://github.com/ramitos/jsctags.git
-    Plugin 'marijnh/tern_for_vim'
+"    Plugin 'marijnh/tern_for_vim'
 
 " YouCompleteMe
 "    Plugin 'Valloric/YouCompleteMe'
@@ -181,7 +178,7 @@ set autoindent                  " Auto-indent
 set autoread                    " Auto read a file after external changes
 set autowriteall                " Auto write when leaving buffer
 set backspace=indent,eol,start  " Allow backspace to work more like expected
-set columns=85                  " Set soft wrap width
+"set columns=85                  " Set soft wrap width
 set encoding=utf-8              " UTF-8
 set expandtab                   " Expand tab characters to spaces
 set exrc secure                 " enable per-directory secure .vimrc files
