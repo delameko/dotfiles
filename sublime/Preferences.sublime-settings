@@ -23,12 +23,17 @@
 	[
 		"gray_antialias"
 	],
-	"font_size": 16,
+	"font_size": 13,
 	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Markdown",
 		".DS_Store"
+	],
+	"index_exclude_patterns":
+	[
+		"scrape/*.html",
+		"scrape/processed/*.html"
 	],
 	"index_files": true,
 	"margin": 6,
