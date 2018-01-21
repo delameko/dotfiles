@@ -86,6 +86,13 @@ call vundle#begin()
     Plugin 'kien/ctrlp.vim'
         let g:ctrlp_working_path_mode='rw'
 
+" deoplete
+  if has('nvim')
+    Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+    let g:deoplete#enable_at_startup=1
+  endif
+
 " Elixir
     Plugin 'elixir-lang/vim-elixir'
 
