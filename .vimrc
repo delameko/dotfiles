@@ -113,19 +113,12 @@ call vundle#begin()
     Plugin 'othree/javascript-libraries-syntax.vim'
         let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,requirejs,jasmine'
 
-" Less
-"    Plugin 'groenewege/vim-less'
-
 " JSON Syntax
     Plugin 'elzr/vim-json'
 
 " Markdown
     Plugin 'godlygeek/tabular'
     Plugin 'plasticboy/vim-markdown'
-
-" Neocomplcache
-"    Plugin 'Shougo/neocomplcache.vim'
-"        let g:neocomplcache_enable_at_startup = 1
 
 " NERDTree
     Plugin 'scrooloose/nerdtree'
@@ -141,14 +134,6 @@ call vundle#begin()
 
 " SCSS
   Plugin 'cakebaker/scss-syntax.vim'
-
-" snipMate
-    " Plugin 'MarcWeber/vim-addon-mw-utils'
-    " Plugin 'tomtom/tlib_vim'
-    " Plugin 'msanders/snipmate.vim'
-    " Plugin 'honza/vim-snippets'
-"        let g:snips_trigger_key = '<S-tab>'
-"        let g:snips_trigger_key_backwards = '<C-S-tab>'
 
 " surround
     Plugin 'tpope/vim-surround'
@@ -177,9 +162,6 @@ call vundle#begin()
 
 " TODO.txt
     Plugin 'freitass/todo.txt-vim'
-
-" YouCompleteMe
-"    Plugin 'Valloric/YouCompleteMe'
 
 " Themes
     "Plugin 'Lokaltog/vim-distinguished'
