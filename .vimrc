@@ -225,6 +225,7 @@ set autowriteall                " Auto write when leaving buffer
 set backspace=indent,eol,start  " Allow backspace to work more like expected
 set expandtab                   " Expand tab characters to spaces
 set exrc secure                 " enable per-directory secure .vimrc files
+set foldmethod=manual           " manual folding
 set formatoptions=ql            " q - allow formatting of comments with :gq
                                 " l - don't format already long lines
 set hidden                      " Allow buffers to be hidden without saving
@@ -237,6 +238,7 @@ set list listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
 set modelines=0                 " Disable modelines, don't use them anyway
 set mouse=a                     " Mouse support
 set nobackup                    " No backup, use git
+set nofoldenable                " Disable folding
 set noswapfile                  " No swap, what does it give me other than complaints
 set noshowmode                  " Hide the default mode text
 set nostartofline               " Stop the cursor moving to the start of the line when switching buffers
