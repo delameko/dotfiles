@@ -2,7 +2,7 @@
 	"always_show_path_on_tabs": true,
 	"auto_complete": true,
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/User/Flatland Dark (SL).tmTheme",
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).tmTheme",
 	"copy_with_empty_selection": true,
 	"detect_indentation": false,
 	"dictionary": "Packages/Language - English/en_GB.dic",
@@ -12,28 +12,30 @@
 	"fold_buttons": false,
 	"folder_exclude_patterns":
 	[
-		".svn",
 		".git",
 		".hg",
+		".sass-cache",
+		".svn",
+		".vagrant",
+		"*.dump",
+		"_build",
 		"CVS",
-		".sass-cache"
+		"deps"
 	],
 	"font_face": "Input Mono",
 	"font_options":
 	[
 		"gray_antialias"
 	],
-	"font_size": 13,
+	"font_size": 16,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Markdown",
-		".DS_Store"
+		".DS_Store",
+		"Markdown"
 	],
 	"index_exclude_patterns":
 	[
-		"scrape/*.html",
-		"scrape/processed/*.html"
 	],
 	"index_files": true,
 	"margin": 6,
@@ -49,7 +51,7 @@
 	"shift_tab_unindent": true,
 	"show_full_path": true,
 	"tab_size": 2,
-	"theme": "Flatland Dark.sublime-theme",
+	"theme": "gruvbox (Dark) (Hard).sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true,
