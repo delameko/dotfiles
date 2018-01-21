@@ -1,6 +1,10 @@
 set nocompatible
-set encoding=utf-8
 set shell=/bin/bash
+
+if !has('nvim')
+  set encoding=utf-8
+endif
+
 filetype off
 
 " Change leader to space
@@ -13,10 +17,13 @@ call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
 
 " Ag
-"    Plugin 'rking/ag.vim'
+    Plugin 'mileszs/ack.vim'
 
 " Airline
-    Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline'
+        if !exists('g:airline_symbols')
+          let g:airline_symbols = {}
+        endif
         let g:airline#extensions#tabline#enabled=1
         let g:airline#extensions#tabline#buffer_nr_show=1
         let g:airline#extensions#tabline#fnamemod=':t'
@@ -24,10 +31,36 @@ call vundle#begin()
         let g:airline_detect_paste=1
         let g:airline#extensions#branch#enable=1
         let g:airline#extensions#syntastic#enable=1
-        let g:airline_left_sep = ''
-        let g:airline_right_sep = ''
-        let g:airline_powerline_fonts=1
+        let g:airline_left_sep = ''
+        let g:airline_right_sep = ''
+        let g:airline_powerline_fonts=0
+        let g:airline_skip_empty_sections=1
+        let g:airline_symbols.linenr = ''
+        let g:airline_symbols.maxlinenr = ''
         let g:airline_theme='dark'
+        let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ }
+
+" alchemist.vim (elixir)
+    Plugin 'slashmili/alchemist.vim'
+        " Point to elixir source
+        let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
+        " Disable semi-tag functionality
+        "let g:alchemist_tag_disable = 1
+        " Shortcuts
+        "let g:alchemist_tag_map = '<C-]>'
+        "let g:alchemist_tag_stack_map = '<C-T>'
 
 " CloseTag
     Plugin 'docunext/closetag.vim'
@@ -35,8 +68,15 @@ call vundle#begin()
 
 " Commentary
     Plugin 'tpope/vim-commentary'
-        imap <D-/> gcc<CR>
-        xmap <D-/> gc<CR>
+        nmap <D-/> gcc
+        xmap <D-/> gc
+
+" CSS3
+    Plugin 'hail2u/vim-css3-syntax'
+        augroup VimCSS3Syntax
+          autocmd!
+          autocmd FileType css setlocal iskeyword+=-
+        augroup END
 
 " cSyntaxAfter
 "    Plugin 'cSyntaxAfter'
@@ -44,17 +84,15 @@ call vundle#begin()
 
 " ctrl-p
     Plugin 'kien/ctrlp.vim'
+        let g:ctrlp_working_path_mode='rw'
 
-" Eclim
-    " Plugin 'initrc/eclim-vundle'
-    "     let g:EclimJavascriptValidate=0 " Disable Eclim's validation in favour of Syntastic
-    "     let g:EclimLocateFileDefaultAction = 'edit'
-    "     nnoremap <silent> <D-R> :LocateFile<CR>
+" Elixir
+    Plugin 'elixir-lang/vim-elixir'
 
 " Expand Region
-"    Plugin 'terryma/vim-expand-region'
-"        vmap v <Plug>(expand_region_expand)
-"        vmap <C-v> <Plug>(expand_region_shrink)
+   Plugin 'terryma/vim-expand-region'
+       vmap v <Plug>(expand_region_expand)
+       vmap <C-v> <Plug>(expand_region_shrink)
 
 " Indent Guides
     Plugin 'nathanaelkane/vim-indent-guides'
@@ -62,8 +100,6 @@ call vundle#begin()
             let g:indent_guides_auto_colors=1
         else
             let g:indent_guides_auto_colors=0
-            hi IndentGuidesOdd  ctermbg=233
-            hi IndentGuidesEven ctermbg=234
         endif
         let g:indent_guides_color_change_percent=5
         let g:indent_guides_enable_on_vim_startup=1
@@ -83,6 +119,10 @@ call vundle#begin()
 " JSON Syntax
     Plugin 'elzr/vim-json'
 
+" Markdown
+    Plugin 'godlygeek/tabular'
+    Plugin 'plasticboy/vim-markdown'
+
 " Neocomplcache
 "    Plugin 'Shougo/neocomplcache.vim'
 "        let g:neocomplcache_enable_at_startup = 1
@@ -99,6 +139,9 @@ call vundle#begin()
         let NERDTreeWinSize=20
         nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
+" SCSS
+  Plugin 'cakebaker/scss-syntax.vim'
+
 " snipMate
     " Plugin 'MarcWeber/vim-addon-mw-utils'
     " Plugin 'tomtom/tlib_vim'
@@ -111,23 +154,29 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'
 
 " Syntastic
-"    Plugin 'scrooloose/syntastic'
-"        let g:syntastic_auto_loc_list=1   " Automatically show error log on save
-"        let g:syntastic_loc_list_height=3 " Only show three errors at a time.
-"        let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
-"        let g:syntastic_javascript_checkers=['jshint']
-"        let g:syntastic_jshint_conf='~/.jshintrc'
-"        let g:syntastic_ruby_checkers=['rubocop']
-"        let g:syntastic_scss_checkers=['scss_lint']
-"        let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
-"        let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
-"        hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-"        hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-"        hi SyntasticErrorSign guifg=white guibg=red
-"        hi SyntasticWarningSign guifg=white guibg=purple
+    Plugin 'scrooloose/syntastic'
+        let g:syntastic_auto_loc_list=1   " Automatically show error log on save
+        let g:syntastic_loc_list_height=3 " Only show three errors at a time.
+        let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
+
+        let g:syntastic_enable_elixir_checker=1
+        let g:syntastic_javascript_checkers=['jshint']
+        let g:syntastic_jshint_conf='~/.jshintrc'
+        let g:syntastic_ruby_checkers=['rubocop']
+        let g:syntastic_scss_checkers=['scss_lint']
+
+        let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
+        let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
+        hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+        hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+        hi SyntasticErrorSign guifg=white guibg=red
+        hi SyntasticWarningSign guifg=white guibg=purple
 
 " Tern - JavaScript editing support - also install npm install -g git://github.com/ramitos/jsctags.git
 "    Plugin 'marijnh/tern_for_vim'
+
+" TODO.txt
+    Plugin 'freitass/todo.txt-vim'
 
 " YouCompleteMe
 "    Plugin 'Valloric/YouCompleteMe'
@@ -135,6 +184,7 @@ call vundle#begin()
 " Themes
     "Plugin 'Lokaltog/vim-distinguished'
     Plugin 'morhetz/gruvbox'
+        let g:gruvbox_contrast_dark='hard'
     "Plugin 'tomasr/molokai'
     "Plugin 'sickill/vim-monokai'
 
@@ -145,15 +195,19 @@ filetype plugin indent on
 syntax on
 set background=dark
 colorscheme gruvbox
+" hi Normal ctermfg=254 ctermbg=234
+hi IndentGuidesOdd  ctermbg=234
+hi IndentGuidesEven ctermbg=235
 
 " Custom filetypes
 autocmd BufNewFile,BufRead *.view set filetype=html
 
 " Change the colour paste column 80
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=233 guibg=#2c2d27
 let &colorcolumn=join(range(81,999),",")
 
-" Change the cursor in terminal so block in normal, underscore in insert
+" Change the cursor in terminal so block in normal,
+" underscore in insert
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
@@ -164,6 +218,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " Quick save
 nnoremap <Leader>w :w<CR>
 
+" Close buffer without closing split
+nmap <silent> <leader>bd :bp\|bd #<CR>
+
 " Use semi-colon for commands
 nnoremap ; :
 
@@ -173,13 +230,10 @@ nmap <silent> <Leader>/ :nohlsearch<CR>
 " Use w!! to sudo save an already opened file
 cmap w!! w !sudo tee % >/dev/null
 
-set acd                         " Auto-change to directory of file in buffer
 set autoindent                  " Auto-indent
 set autoread                    " Auto read a file after external changes
 set autowriteall                " Auto write when leaving buffer
 set backspace=indent,eol,start  " Allow backspace to work more like expected
-"set columns=85                  " Set soft wrap width
-set encoding=utf-8              " UTF-8
 set expandtab                   " Expand tab characters to spaces
 set exrc secure                 " enable per-directory secure .vimrc files
 set formatoptions=ql            " q - allow formatting of comments with :gq
