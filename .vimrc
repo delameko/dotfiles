@@ -90,11 +90,19 @@ call vundle#begin()
   if has('nvim')
     Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+
     let g:deoplete#enable_at_startup=1
+
+    inoremap <expr><tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
+    inoremap <expr><CR> pumvisible() ? deoplete#smart_close_popup()."\<CR>" : "\<CR>"
+    set completeopt+=noinsert
+    " call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
   endif
 
 " Elixir
     Plugin 'elixir-lang/vim-elixir'
+    Plugin 'thinca/vim-ref'
+    Plugin 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
 " Expand Region
    Plugin 'terryma/vim-expand-region'
@@ -169,6 +177,9 @@ call vundle#begin()
 
 " TODO.txt
     Plugin 'freitass/todo.txt-vim'
+
+" Ultisnips
+    Plugin 'SirVer/ultisnips'
 
 " Themes
     "Plugin 'Lokaltog/vim-distinguished'
