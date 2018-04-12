@@ -40,9 +40,17 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=()
+plugins=(mix)
 
 source $ZSH/oh-my-zsh.sh
+
+# Increase size of history
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+export HISTFILE=~/.zsh_history
+
+# Ignore duplicates
+setopt HIST_IGNORE_ALL_DUPS
 
 # Shared history
 setopt inc_append_history

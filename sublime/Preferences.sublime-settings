@@ -32,6 +32,8 @@
 	"ignored_packages":
 	[
 		".DS_Store",
+		"Elixir",
+		"HTMLBeautify",
 		"Markdown"
 	],
 	"index_exclude_patterns":
