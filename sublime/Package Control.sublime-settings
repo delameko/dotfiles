@@ -13,8 +13,6 @@
 	"ignore_vcs_packages": true,
 	"in_process_packages":
 	[
-		"Elixir",
-		"HTMLBeautify"
 	],
 	"installed_packages":
 	[

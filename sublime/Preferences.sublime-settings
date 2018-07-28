@@ -1,6 +1,24 @@
 {
 	"always_show_path_on_tabs": true,
 	"auto_complete": true,
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip",
+		"node_modules/**",
+		"vendor/**"
+	],
 	"close_windows_when_empty": false,
 	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).tmTheme",
 	"copy_with_empty_selection": true,
@@ -32,8 +50,6 @@
 	"ignored_packages":
 	[
 		".DS_Store",
-		"Elixir",
-		"HTMLBeautify",
 		"Markdown"
 	],
 	"index_exclude_patterns":
