@@ -130,6 +130,7 @@ call vundle#begin()
 
 " JSON Syntax
     Plugin 'elzr/vim-json'
+        let g:vim_json_syntax_conceal = 0 " don't hide double quotes
 
 " Markdown
     Plugin 'godlygeek/tabular'
@@ -148,7 +149,7 @@ call vundle#begin()
         nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " SCSS
-  Plugin 'cakebaker/scss-syntax.vim'
+    Plugin 'cakebaker/scss-syntax.vim'
 
 " surround
     Plugin 'tpope/vim-surround'
@@ -160,8 +161,8 @@ call vundle#begin()
         let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
 
         let g:syntastic_enable_elixir_checker=1
-        let g:syntastic_javascript_checkers=['jshint']
-        let g:syntastic_jshint_conf='~/.jshintrc'
+        let g:syntastic_javascript_checkers=['eslint']
+        " let g:syntastic_jshint_conf='~/.jshintrc'
         let g:syntastic_ruby_checkers=['rubocop']
         let g:syntastic_scss_checkers=['scss_lint']
 
@@ -225,7 +226,9 @@ nmap <silent> <leader>bd :bp\|bd #<CR>
 nnoremap ; :
 
 " Clear the search highlights with <L>/
-nmap <silent> <Leader>/ :nohlsearch<CR>
+" nmap <silent> <Leader>/ :nohlsearch<CR>
+" Clear the search highlights when hitting esc
+nnoremap <silent> <esc> :noh<cr><esc>
 
 " Use w!! to sudo save an already opened file
 cmap w!! w !sudo tee % >/dev/null
