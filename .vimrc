@@ -1,197 +1,53 @@
 set nocompatible
-set shell=/bin/bash
+set encoding=utf-8
+set shell=/bin/zsh
 
-if !has('nvim')
-  set encoding=utf-8
+" Plugins begin
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-filetype off
+call plug#begin()
 
-" Change leader to space
-let mapleader="\<Space>"
-
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" Vundle
-    Plugin 'gmarik/Vundle.vim'
-
-" Ag
-    Plugin 'mileszs/ack.vim'
-
-" Airline
-    Plugin 'vim-airline/vim-airline'
-        if !exists('g:airline_symbols')
-          let g:airline_symbols = {}
-        endif
-        let g:airline#extensions#tabline#enabled=1
-        let g:airline#extensions#tabline#buffer_nr_show=1
-        let g:airline#extensions#tabline#fnamemod=':t'
-        let g:airline_detect_modified=1
-        let g:airline_detect_paste=1
-        let g:airline#extensions#branch#enable=1
-        let g:airline#extensions#syntastic#enable=1
-        let g:airline_left_sep = ''
-        let g:airline_right_sep = ''
-        let g:airline_powerline_fonts=0
-        let g:airline_skip_empty_sections=1
-        let g:airline_symbols.linenr = ''
-        let g:airline_symbols.maxlinenr = ''
-        let g:airline_theme='dark'
-        let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'R'  : 'R',
-            \ 'c'  : 'C',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ '' : 'V',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ '' : 'S',
-            \ }
-
-" alchemist.vim (elixir)
-    Plugin 'slashmili/alchemist.vim'
-        " Point to elixir source
-        let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
-        " Disable semi-tag functionality
-        "let g:alchemist_tag_disable = 1
-        " Shortcuts
-        "let g:alchemist_tag_map = '<C-]>'
-        "let g:alchemist_tag_stack_map = '<C-T>'
-
-" CloseTag
-    Plugin 'docunext/closetag.vim'
-        autocmd FileType html,eruby let b:closetag_html_style=1
-
-" Commentary
-    Plugin 'tpope/vim-commentary'
-        nmap <D-/> gcc
-        xmap <D-/> gc
-
-" CSS3
-    Plugin 'hail2u/vim-css3-syntax'
-        augroup VimCSS3Syntax
-          autocmd!
-          autocmd FileType css setlocal iskeyword+=-
-        augroup END
-
-" cSyntaxAfter
-"    Plugin 'cSyntaxAfter'
-"        autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,h,javascript} call CSyntaxAfter()
-
-" ctrl-p
-    Plugin 'kien/ctrlp.vim'
-        let g:ctrlp_working_path_mode='rw'
-
-" deoplete
-  if has('nvim')
-    Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-
-    let g:deoplete#enable_at_startup=1
-
-    inoremap <expr><tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
-    inoremap <expr><CR> pumvisible() ? deoplete#smart_close_popup()."\<CR>" : "\<CR>"
-    set completeopt+=noinsert
-    " call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
-  endif
-
-" Elixir
-    Plugin 'elixir-lang/vim-elixir'
-    Plugin 'thinca/vim-ref'
-    Plugin 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-
-" Expand Region
-   Plugin 'terryma/vim-expand-region'
-       vmap v <Plug>(expand_region_expand)
-       vmap <C-v> <Plug>(expand_region_shrink)
+" Gruvbox
+Plug 'morhetz/gruvbox'
+  let g:gruvbox_contrast_dark='hard'
 
 " Indent Guides
-    Plugin 'nathanaelkane/vim-indent-guides'
-        if has("gui_running")
-            let g:indent_guides_auto_colors=1
-        else
-            let g:indent_guides_auto_colors=0
-        endif
-        let g:indent_guides_color_change_percent=5
-        let g:indent_guides_enable_on_vim_startup=1
-        let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-        let g:indent_guides_start_level=2
-
-" JavaScript Syntax
-    Plugin 'jelera/vim-javascript-syntax'
-
-" JavaScript Library Syntax
-    Plugin 'othree/javascript-libraries-syntax.vim'
-        let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,requirejs,jasmine'
-
-" JSON Syntax
-    Plugin 'elzr/vim-json'
-        let g:vim_json_syntax_conceal = 0 " don't hide double quotes
-
-" Markdown
-    Plugin 'godlygeek/tabular'
-    Plugin 'plasticboy/vim-markdown'
-
-" NERDTree
-    Plugin 'scrooloose/nerdtree'
-        let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
-        let NERDTreeChDirMode=1
-        let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.idea','\.DS_Store']
-        let NERDTreeMinimalUI=1
-        let NERDTreeQuitOnOpen=0
-        let NERDTreeShowBookmarks=1
-        let NERDTreeShowHidden=1
-        let NERDTreeWinSize=20
-        nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-
-" SCSS
-    Plugin 'cakebaker/scss-syntax.vim'
-
-" surround
-    Plugin 'tpope/vim-surround'
+Plug 'nathanaelkane/vim-indent-guides'
+  if has("gui_running")
+    let g:indent_guides_auto_colors=1
+  else
+    let g:indent_guides_auto_colors=0
+  endif
+  let g:indent_guides_color_change_percent=5
+  let g:indent_guides_enable_on_vim_startup=1
+  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+  let g:indent_guides_start_level=2
 
 " Syntastic
-    Plugin 'scrooloose/syntastic'
-        let g:syntastic_auto_loc_list=1   " Automatically show error log on save
-        let g:syntastic_loc_list_height=3 " Only show three errors at a time.
-        let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
+Plug 'scrooloose/syntastic'
+  let g:syntastic_auto_loc_list=1   " Automatically show error log on save
+  let g:syntastic_loc_list_height=3 " Only show three errors at a time.
+  let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
 
-        let g:syntastic_enable_elixir_checker=1
-        let g:syntastic_javascript_checkers=['eslint']
-        " let g:syntastic_jshint_conf='~/.jshintrc'
-        let g:syntastic_ruby_checkers=['rubocop']
-        let g:syntastic_scss_checkers=['scss_lint']
+  let g:syntastic_enable_elixir_checker=1
+  let g:syntastic_javascript_checkers=['eslint']
+  " let g:syntastic_jshint_conf='~/.jshintrc'
+  " let g:syntastic_ruby_checkers=['rubocop']
+  let g:syntastic_scss_checkers=['scss_lint']
 
-        let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
-        let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
-        hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-        hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
-        hi SyntasticErrorSign guifg=white guibg=red
-        hi SyntasticWarningSign guifg=white guibg=purple
+  let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
+  let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
+  hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+  hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+  hi SyntasticErrorSign guifg=white guibg=red
+  hi SyntasticWarningSign guifg=white guibg=purple
 
-" Tern - JavaScript editing support - also install npm install -g git://github.com/ramitos/jsctags.git
-"    Plugin 'marijnh/tern_for_vim'
-
-" TODO.txt
-    Plugin 'freitass/todo.txt-vim'
-
-" Ultisnips
-    Plugin 'SirVer/ultisnips'
-
-" Themes
-    "Plugin 'Lokaltog/vim-distinguished'
-    Plugin 'morhetz/gruvbox'
-        let g:gruvbox_contrast_dark='hard'
-    "Plugin 'tomasr/molokai'
-    "Plugin 'sickill/vim-monokai'
-
-call vundle#end()
-
-filetype plugin indent on
+" Plugins end
+call plug#end()
 
 syntax on
 set background=dark
@@ -200,15 +56,12 @@ colorscheme gruvbox
 hi IndentGuidesOdd  ctermbg=234
 hi IndentGuidesEven ctermbg=235
 
-" Custom filetypes
-autocmd BufNewFile,BufRead *.view set filetype=html
-
 " Change the colour paste column 80
 highlight ColorColumn ctermbg=233 guibg=#2c2d27
 let &colorcolumn=join(range(81,999),",")
 
 " Change the cursor in terminal so block in normal,
-" underscore in insert
+" line in insert
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
@@ -284,9 +137,6 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " Replace tabs with spaces on save
 autocmd BufRead,BufWrite * if ! &bin | silent! :retab | endif
 
-"
-" autocmd BufWrite * if v:insertmode == 'i' | call feedkeys("\<C-\>\<C-n>") | endif
-
 " Write all files when focus lost or switch tab
 "autocmd FocusLost,WinLeave * silent! :wa
 
@@ -333,6 +183,15 @@ if ! has('gui_running')
     au InsertLeave * set timeoutlen=1000
   augroup END
 endif
+
+nnoremap <silent> <ESC>OA <UP>
+nnoremap <silent> <ESC>OB <DOWN>
+nnoremap <silent> <ESC>OC <RIGHT>
+nnoremap <silent> <ESC>OD <LEFT>
+inoremap <silent> <ESC>OA <UP>
+inoremap <silent> <ESC>OB <DOWN>
+inoremap <silent> <ESC>OC <RIGHT>
+inoremap <silent> <ESC>OD <LEFT>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
