@@ -2,6 +2,10 @@ set nocompatible
 set encoding=utf-8
 set shell=/bin/zsh
 
+" Change leader to space, must set it before plugins, incase the plugins use leader
+nnoremap <Space> <Nop>
+let mapleader=" "
+
 " Plugins begin
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -10,6 +14,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+
+" Alchemist.vim (elixir)
+Plug 'slashmili/alchemist.vim'
+  " Point to elixir source
+  let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
+  " Disable semi-tag functionality
+  "let g:alchemist_tag_disable = 1
+  " Shortcuts
+  "let g:alchemist_tag_map = '<C-]>'
+  "let g:alchemist_tag_stack_map = '<C-T>'
 
 " Gruvbox
 Plug 'morhetz/gruvbox'
@@ -27,6 +41,24 @@ Plug 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
   let g:indent_guides_start_level=2
 
+" NERDTree
+Plug 'scrooloose/nerdtree'
+  let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
+  let NERDTreeChDirMode=1
+  let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.idea','\.DS_Store']
+  let NERDTreeMinimalUI=1
+  let NERDTreeMouseMode=1
+  let NERDTreeQuitOnOpen=0
+  let NERDTreeRemoveDirCmd='trash '
+  let NERDTreeRemoveFileCmd='trash '
+  let NERDTreeShowBookmarks=1
+  let NERDTreeShowHidden=1
+  let NERDTreeShowLineNumbers=1
+  let NERDTreeWinPos='right'
+  let NERDTreeWinSize=20
+  nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+  autocmd vimenter * NERDTree
+
 " Syntastic
 Plug 'scrooloose/syntastic'
   let g:syntastic_auto_loc_list=1   " Automatically show error log on save
@@ -41,13 +73,21 @@ Plug 'scrooloose/syntastic'
 
   let g:syntastic_mode_map={ 'mode': 'active', 'passive_filetypes': ['html', 'view'] }
   let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-", " proprietary attribute \"bb-" ]
-  hi SyntasticError term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
+  hi SyntasticError term=reverse ctermbg=41 ctermfg=37 gui=undercurl guisp=white
   hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
   hi SyntasticErrorSign guifg=white guibg=red
   hi SyntasticWarningSign guifg=white guibg=purple
 
+" surround
+Plug 'tpope/vim-surround'
+
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe'
+
 " Plugins end
 call plug#end()
+
+filetype plugin indent on
 
 syntax on
 set background=dark
@@ -55,6 +95,9 @@ colorscheme gruvbox
 " hi Normal ctermfg=254 ctermbg=234
 hi IndentGuidesOdd  ctermbg=234
 hi IndentGuidesEven ctermbg=235
+
+" Custom filetypes
+autocmd BufNewFile,BufRead *.view set filetype=html
 
 " Change the colour paste column 80
 highlight ColorColumn ctermbg=233 guibg=#2c2d27
@@ -66,14 +109,20 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Quick editing of .vimrc
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 
 " Quick save
 nnoremap <Leader>w :w<CR>
 
+" Insert a newline in command mode, without entering insert mode
+" The m` preserves line position.
+nmap <C-S-O> m`O<Esc>``
+nmap <C-O> m`o<Esc>``
+
+" Quick save nnoremap <Leader>w :w<CR>
 " Close buffer without closing split
-nmap <silent> <leader>bd :bp\|bd #<CR>
+nmap <silent> <Leader>bd :bp\|bd #<CR>
 
 " Use semi-colon for commands
 nnoremap ; :
