@@ -1,6 +1,6 @@
 *.log
 *.swp
-.vim/bundle
+.vim/plugged
 .vim/session
 .NERDTreeBookmarks
 undodir
