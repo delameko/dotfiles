@@ -3,6 +3,8 @@
 .vim/plugged
 .vim/session
 .vim_old
+!.vscode
+.vscode/extensions
 .NERDTreeBookmarks
 undodir
 .DS_Store
