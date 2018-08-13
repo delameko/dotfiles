@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/delameko/Code/experiments/elixir/stubgun_core'
-let g:netrw_dirhist_2='/Users/delameko/Code/experiments/elixir/stubgun_core/apps/stubgun/web/models'
