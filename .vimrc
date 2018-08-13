@@ -83,6 +83,8 @@ Plug 'tpope/vim-surround'
 
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
+  silent! py3 pass " Temporary fix for python3 deprecation warning
+  "let g:ycm_server_python_interpreter='/usr/local/bin/python'
 
 " Plugins end
 call plug#end()
