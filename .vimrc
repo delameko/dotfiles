@@ -25,6 +25,9 @@ Plug 'slashmili/alchemist.vim'
   "let g:alchemist_tag_map = '<C-]>'
   "let g:alchemist_tag_stack_map = '<C-T>'
 
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+
 " Gruvbox
 Plug 'morhetz/gruvbox'
   let g:gruvbox_contrast_dark='hard'
