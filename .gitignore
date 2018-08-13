@@ -2,6 +2,7 @@
 *.swp
 .vim/plugged
 .vim/session
+.vim_old
 .NERDTreeBookmarks
 undodir
 .DS_Store
