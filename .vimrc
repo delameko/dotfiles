@@ -53,11 +53,11 @@ Plug 'scrooloose/nerdtree'
   let NERDTreeRemoveFileCmd='trash '
   let NERDTreeShowBookmarks=1
   let NERDTreeShowHidden=1
-  let NERDTreeShowLineNumbers=1
+  let NERDTreeShowLineNumbers=0
   let NERDTreeWinPos='right'
-  let NERDTreeWinSize=20
+  let NERDTreeWinSize=30
   nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-  autocmd vimenter * NERDTree
+  " autocmd vimenter * NERDTree
 
 " Syntastic
 Plug 'scrooloose/syntastic'
