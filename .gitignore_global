@@ -15,6 +15,10 @@
 *.sublime-project
 *.sublime-workspace
 
+# Ignore VSCode project files
+.vscode
+*.code-workspace
+
 # Ignore subversion
 .svn
 
