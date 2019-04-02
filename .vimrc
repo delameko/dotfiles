@@ -28,6 +28,9 @@ call plug#begin()
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 
+" Erlang
+Plug 'vim-erlang/vim-erlang-runtime'
+
 " Gruvbox
 Plug 'morhetz/gruvbox'
   let g:gruvbox_contrast_dark='hard'
