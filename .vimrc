@@ -16,9 +16,9 @@ endif
 call plug#begin()
 
 " Alchemist.vim (elixir)
-Plug 'slashmili/alchemist.vim'
+"Plug 'slashmili/alchemist.vim'
   " Point to elixir source
-  let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
+  "let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
   " Disable semi-tag functionality
   "let g:alchemist_tag_disable = 1
   " Shortcuts
@@ -85,8 +85,8 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
-  silent! py3 pass " Temporary fix for python3 deprecation warning
+"Plug 'Valloric/YouCompleteMe'
+  "silent! py3 pass " Temporary fix for python3 deprecation warning
   "let g:ycm_server_python_interpreter='/usr/local/bin/python'
 
 " Plugins end
