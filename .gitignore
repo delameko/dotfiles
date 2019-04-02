@@ -1,11 +1,12 @@
 *.log
 *.swp
+.DS_Store
+.NERDTreeBookmarks
+.vim/.netrwhist
 .vim/plugged
 .vim/session
 .vim_old
 !.vscode
+.vscode/ansible-credentials.yml
 .vscode/extensions
-.NERDTreeBookmarks
 undodir
-.DS_Store
-.vim/.netrwhist
