@@ -11,6 +11,9 @@
 # Ignore Elixir LS files
 .elixir_ls
 
+# Ignore Paw files
+*.paw
+
 # Ignore Sublime project files
 *.sublime-project
 *.sublime-workspace
