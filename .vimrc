@@ -25,6 +25,9 @@ call plug#begin()
   "let g:alchemist_tag_map = '<C-]>'
   "let g:alchemist_tag_stack_map = '<C-T>'
 
+" COC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 
@@ -128,7 +131,6 @@ nnoremap <Leader>w :w<CR>
 nmap <C-S-O> m`O<Esc>``
 nmap <C-O> m`o<Esc>``
 
-" Quick save nnoremap <Leader>w :w<CR>
 " Close buffer without closing split
 nmap <silent> <Leader>bd :bp\|bd #<CR>
 
