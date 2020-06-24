@@ -1,9 +1,6 @@
 # Ignore Mac files
 .DS_Store
 
-# Ignore placeholders for empty folders
-.gitkeep
-
 # Ignore tag files
 .gemtags
 .tags
