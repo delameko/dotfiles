@@ -8,6 +8,10 @@
 # Ignore Elixir LS files
 .elixir_ls
 
+# Ignore IntelliJ iDEA project files
+.idea
+*.iml
+
 # Ignore Paw files
 *.paw
 
