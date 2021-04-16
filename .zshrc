@@ -4,10 +4,10 @@ export HISTFILE=~/.zsh_history
 export HISTFILESIZE=200000
 export HISTSIZE=100000
 setopt HIST_IGNORE_ALL_DUPS # Ignore duplicates
-
-# Shared history
-setopt inc_append_history
-setopt share_history
+setopt HIST_IGNORE_SPACE # Ignore lines starting with a space
+setopt INC_APPEND_HISTORY
+export SAVEHIST=$HISTSIZE
+setopt SHARE_HISTORY
 
 # Enable online help
 unalias run-help 2>/dev/null
