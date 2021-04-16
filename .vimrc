@@ -28,11 +28,18 @@ call plug#begin()
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Commentary
+Plug 'tpope/vim-commentary'
+
+" Dispatch
+Plug 'tpope/vim-dispatch'
+  autocmd FileType elixir let b:dispatch='mix test %'
+
 " Elixir
-Plug 'elixir-editors/vim-elixir'
+"Plug 'elixir-editors/vim-elixir'
 
 " Erlang
-Plug 'vim-erlang/vim-erlang-runtime'
+"Plug 'vim-erlang/vim-erlang-runtime'
 
 " Gruvbox
 Plug 'morhetz/gruvbox'
@@ -68,13 +75,30 @@ Plug 'scrooloose/nerdtree'
   nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
   " autocmd vimenter * NERDTree
 
+" Polyglot
+Plug 'sheerun/vim-polyglot'
+
+" Projectionist
+Plug 'tpope/vim-projectionist'
+
+" Sonokai
+Plug 'sainnhe/sonokai'
+  let g:sonokai_style='shusia'
+
+" Surround
+Plug 'tpope/vim-surround'
+
 " Syntastic
 Plug 'scrooloose/syntastic'
+  let g:syntastic_always_populate_loc_list=1
   let g:syntastic_auto_loc_list=1   " Automatically show error log on save
+  let g:syntastic_check_on_open=1
+  let g:syntastic_check_on_wq=0
   let g:syntastic_loc_list_height=3 " Only show three errors at a time.
   let g:syntastic_ignore_files=['[a-zA-Z0-9\-\_\.]+\.html$', '[a-zA-Z0-9\-\_\.]+\.view$']
 
-  let g:syntastic_enable_elixir_checker=1
+  " let g:syntastic_enable_elixir_checker=1
+  " let g:syntastic_elixir_checkers=['elixir']
   let g:syntastic_javascript_checkers=['eslint']
   " let g:syntastic_jshint_conf='~/.jshintrc'
   " let g:syntastic_ruby_checkers=['rubocop']
@@ -86,9 +110,12 @@ Plug 'scrooloose/syntastic'
   hi SyntasticWarning term=reverse ctermbg=40 ctermfg=37 gui=undercurl guisp=white
   hi SyntasticErrorSign guifg=white guibg=red
   hi SyntasticWarningSign guifg=white guibg=purple
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
 
-" surround
-Plug 'tpope/vim-surround'
+" vimproc
+"Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " YouCompleteMe
 "Plug 'Valloric/YouCompleteMe'
@@ -180,6 +207,7 @@ set splitbelow                  " Create horizontal splits below the current one
 set splitright                  " Create vertical splits to the right of current
 set t_Co=256                    " Set 256 colours
 set tabstop=2                   " Tab stop
+"set termguicolors               " enable 24 bit color
 set ttyfast                     " Speed up screen updates in large files
 set undodir=~/.vim/undodir      " Where to save the undo file
 set undofile                    " Save undos to a file, so they persist
@@ -189,7 +217,7 @@ set wildmode=list:longest,full  " Auto complete to the longest match
 set ws                          " Search commands wrap the end of buffer
 
 " Automatically cd into the directory that the file is in
-"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+"autocmd BufEnter * execute 'chdir '.escape(expand("%:p:h"), ' ')
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
