@@ -36,7 +36,7 @@ Plug 'tpope/vim-dispatch'
   autocmd FileType elixir let b:dispatch='mix test %'
 
 " Elixir
-"Plug 'elixir-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 
 " Erlang
 "Plug 'vim-erlang/vim-erlang-runtime'
@@ -58,21 +58,22 @@ Plug 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_start_level=2
 
 " NERDTree
-Plug 'scrooloose/nerdtree'
-  let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
-  let NERDTreeChDirMode=1
-  let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.idea','\.DS_Store']
-  let NERDTreeMinimalUI=1
-  let NERDTreeMouseMode=1
-  let NERDTreeQuitOnOpen=0
-  let NERDTreeRemoveDirCmd='trash '
-  let NERDTreeRemoveFileCmd='trash '
-  let NERDTreeShowBookmarks=1
-  let NERDTreeShowHidden=1
-  let NERDTreeShowLineNumbers=0
-  let NERDTreeWinPos='right'
-  let NERDTreeWinSize=30
-  nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+" Plug 'scrooloose/nerdtree'
+"   let NERDTreeBookmarksFile=$HOME."/.vim/.NERDTreeBookmarks"
+"   let NERDTreeChDirMode=2
+"   let NERDTreeIgnore=['\~$','\.swp$','\.git','\.hg','\.svn','\.bzr','\.idea','\.DS_Store','_build']
+"   let NERDTreeMinimalUI=1
+"   let NERDTreeMouseMode=1
+"   let NERDTreeNaturalSort=1 " Order files 1.txt, 2.txt, 10.txt (0 would order them 1, 10, 2)
+"   let NERDTreeQuitOnOpen=0
+"   let NERDTreeRemoveDirCmd='trash '
+"   let NERDTreeRemoveFileCmd='trash '
+"   let NERDTreeShowBookmarks=1
+"   let NERDTreeShowHidden=1
+"   let NERDTreeShowLineNumbers=0
+"   let NERDTreeWinPos='right'
+"   let NERDTreeWinSize=30
+"   nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
   " autocmd vimenter * NERDTree
 
 " Polyglot
@@ -87,6 +88,9 @@ Plug 'sainnhe/sonokai'
 
 " Surround
 Plug 'tpope/vim-surround'
+
+" vinegar.vim
+Plug 'tpope/vim-vinegar'
 
 " Syntastic
 Plug 'scrooloose/syntastic'
@@ -114,6 +118,8 @@ Plug 'scrooloose/syntastic'
   set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
+" SyntaxAttr.vim - Display the syntax highlighting atributes
+
 " vimproc
 "Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
@@ -121,6 +127,14 @@ Plug 'scrooloose/syntastic'
 "Plug 'Valloric/YouCompleteMe'
   "silent! py3 pass " Temporary fix for python3 deprecation warning
   "let g:ycm_server_python_interpreter='/usr/local/bin/python'
+
+" Vim-Test
+Plug 'vim-test/vim-test'
+  let test#enabled_runners=["elixir#exunit"]
+  let test#strategy="dispatch"
+  nmap <silent> <C-r> :TestNearest<CR>
+  "nmap <silent> <C-r><C-r> :TestFile<CR>
+  "nmap <silent> <M-R><M-R> :TestSuite<CR>
 
 " Plugins end
 call plug#end()
