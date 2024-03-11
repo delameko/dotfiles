@@ -1,12 +1,17 @@
 # History
-export HISTCONTROL=ignorespace
+export HISTCONTROL=ignorespace:ignoredups:erasedups
 export HISTFILE=~/.zsh_history
-export HISTFILESIZE=200000
-export HISTSIZE=100000
+export HISTFILESIZE=40000
+export HISTSIZE=20000
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS # Ignore duplicates
+setopt histignorealldups
+setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE # Ignore lines starting with a space
+setopt HIST_SAVE_NO_DUPS
 setopt INC_APPEND_HISTORY
-export SAVEHIST=$HISTSIZE
+export SAVEHIST=10000
 setopt SHARE_HISTORY
 
 # Enable online help
@@ -24,6 +29,7 @@ if [[ "$(uname)" -eq "Darwin" ]]; then
     alias search='brew search'
     alias update='brew update'
     alias upgrade='brew upgrade'
+    alias clr="clear && printf '\033[3J'"
 elif [[ "$(uname)" -eq "Linux" ]]; then
     alias install='sudo aptitude install'
     alias list='dpkg --list'
