@@ -1,0 +1,8 @@
+# This is Git's per-user configuration file.
+[user]
+name = Matthew Slater
+email = delameko@delameko-stone.com
+[core]
+	excludesFile = ~/.gitignore
+[init]
+	defaultBranch = master
