@@ -11,6 +11,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE # Ignore lines starting with a space
 setopt HIST_SAVE_NO_DUPS
 setopt INC_APPEND_HISTORY
+export LANG=en_GB.UTF-8
 export SAVEHIST=10000
 setopt SHARE_HISTORY
 
