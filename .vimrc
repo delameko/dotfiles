@@ -20,7 +20,7 @@ set statusline=\ %f\ [%l:%c]
 call plug#begin()
 
 " COC
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Commentary - comment stuff out
 "   gcc - comment out line, takes a count
