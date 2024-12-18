@@ -3,6 +3,6 @@
 name = Matthew Slater
 email = delameko@delameko-stone.com
 [core]
-	excludesFile = ~/.gitignore
+excludesFile = ~/.gitignore
 [init]
-	defaultBranch = master
+defaultBranch = master
