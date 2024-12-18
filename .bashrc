@@ -27,3 +27,4 @@ fi
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+. $HOME/.asdf/asdf.sh
