@@ -26,3 +26,6 @@ if [[ -r ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
 
+
+# Created by `pipx` on 2024-12-28 11:58:18
+export PATH="$PATH:/home/delameko/.local/bin"
